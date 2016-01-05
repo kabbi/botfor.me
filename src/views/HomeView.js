@@ -18,7 +18,7 @@ export class HomeView extends React.Component {
     increment: React.PropTypes.func.isRequired
   }
 
-  render () {
+  render() {
     return (
       <div className='container text-center'>
         <h1>Welcome to the React Redux Starter Kit</h1>
