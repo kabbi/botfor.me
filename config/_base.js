@@ -86,6 +86,8 @@ config.globals = {
   '__MAINTAINING_MODE__': process.env.MAINTAINING_MODE
 };
 
+console.log('_base:', process.env.MAINTAINING_MODE);
+
 // ------------------------------------
 // Validate Vendor Dependencies
 // ------------------------------------
