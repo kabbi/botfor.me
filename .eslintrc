@@ -13,6 +13,7 @@
     "__DEBUG__"    : false,
     "__DEBUG_NEW_WINDOW__" : false,
     "__BASENAME__" : false,
+    "__MAINTAINING_MODE__" : false,
     "React": true,
     "ReactDOM": true
   },

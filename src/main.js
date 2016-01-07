@@ -4,15 +4,25 @@ import routes from './routes';
 import Root from './containers/Root';
 import configureStore from './redux/configureStore';
 
-const history = useBasename(createHistory)({
-  basename: __BASENAME__
-});
-const store = configureStore(window.__INITIAL_STATE__);
+import MaintainingView from 'views/MaintainingView';
 
-syncReduxAndRouter(history, store, (state) => state.router);
+if (__MAINTAINING_MODE__) {
+  ReactDOM.render(
+    <MaintainingView />,
+    document.getElementById('root')
+  );
+} else {
+  const history = useBasename(createHistory)({
+    basename: __BASENAME__
+  });
+  const store = configureStore(window.__INITIAL_STATE__);
 
-// Render the React application to the DOM
-ReactDOM.render(
-  <Root history={history} routes={routes} store={store} />,
-  document.getElementById('root')
-);
+  syncReduxAndRouter(history, store, (state) => state.router);
+
+  // Render the React application to the DOM
+  ReactDOM.render(
+    <Root history={history} routes={routes} store={store} />,
+    document.getElementById('root')
+  );
+}
+
