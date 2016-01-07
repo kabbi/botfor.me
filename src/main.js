@@ -5,7 +5,7 @@ import Root from './containers/Root';
 import configureStore from './redux/configureStore';
 
 import MaintainingView from 'views/MaintainingView';
-console.log('__MAINTAINING_MODE__', __MAINTAINING_MODE__);
+
 if (__MAINTAINING_MODE__) {
   ReactDOM.render(
     <MaintainingView />,
