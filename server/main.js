@@ -4,10 +4,14 @@ import webpackConfig from '../build/webpack.config';
 import serve from 'koa-static';
 import _debug from 'debug';
 import config from '../config';
+import routes from './routes';
 
 const debug = _debug('app:server');
 const paths = config.utils_paths;
 const app = koa();
+
+// Load api routes
+routes(app);
 
 // This rewrites all routes requests to the root /index.html file
 // (ignoring file requests). If you want to implement isomorphic
