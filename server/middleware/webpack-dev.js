@@ -1,14 +1,12 @@
-import WebpackDevMiddleware from 'koa-webpack-dev-middleware';
-import _debug from 'debug';
-import config from '../../config';
+const config = require('../../config');
 
 const paths = config.utils_paths;
-const debug = _debug('app:server:webpack-dev');
+const debug = require('debug')('app:server:webpack-dev');
 
-export default function(compiler, publicPath) {
+module.exports = function(compiler, publicPath) {
   debug('Enable webpack dev middleware.');
 
-  return WebpackDevMiddleware(compiler, {
+  return require('koa-webpack-dev-middleware')(compiler, {
     publicPath,
     contentBase: paths.base(config.dir_client),
     hot: true,

@@ -1,10 +1,7 @@
-import WebpackHotMiddleware from 'koa-webpack-hot-middleware';
-import _debug from 'debug';
+const debug = require('debug')('app:server:webpack-hmr');
 
-const debug = _debug('app:server:webpack-hmr');
-
-export default function(compiler) {
+module.exports = function(compiler) {
   debug('Enable Webpack Hot Module Replacement (HMR).');
 
-  return WebpackHotMiddleware(compiler);
+  return require('koa-webpack-hot-middleware')(compiler);
 }

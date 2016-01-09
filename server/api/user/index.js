@@ -1,9 +1,6 @@
-import koaRouter from 'koa-router';
-
-import * as controller from './user.controller.js';
-
-const router = koaRouter();
+const controller = require('./user.controller.js');
+const router = require('koa-router')();
 
 router.get('/', controller.index);
 
-export default (router.routes());
+module.exports = router.routes();

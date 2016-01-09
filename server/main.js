@@ -1,17 +1,13 @@
-import koa from 'koa';
-import webpack from 'webpack';
-import webpackConfig from '../build/webpack.config';
-import serve from 'koa-static';
-import _debug from 'debug';
-import config from '../config';
-import routes from './routes';
+const webpack = require('webpack');
+const webpackConfig = require('../build/webpack.config');
+const config = require('../config');
 
-const debug = _debug('app:server');
+const debug = require('debug')('app:server');
 const paths = config.utils_paths;
-const app = koa();
+const app = require('koa')();
 
 // Load api routes
-routes(app);
+require('./routes')(app);
 
 // This rewrites all routes requests to the root /index.html file
 // (ignoring file requests). If you want to implement isomorphic
@@ -23,6 +19,7 @@ app.use(require('koa-connect-history-api-fallback')({
 // ------------------------------------
 // Apply Webpack HMR Middleware
 // ------------------------------------
+const serve = require('koa-static');
 if (config.compiler_enable_hmr) {
   const compiler = webpack(webpackConfig);
 
@@ -51,4 +48,4 @@ if (config.compiler_enable_hmr) {
   app.use(serve(paths.base(config.dir_dist)));
 }
 
-export default app;
+module.exports = app;
