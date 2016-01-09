@@ -1,5 +1,8 @@
 import '../styles/core.scss';
 
+import 'material-design-lite/material.min.css';
+import 'material-design-lite/material.min.js';
+
 import HeaderView from 'views/HeaderView';
 
 function CoreLayout({ children }) {
