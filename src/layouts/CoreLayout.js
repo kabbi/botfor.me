@@ -7,13 +7,13 @@ import HeaderView from 'views/HeaderView';
 
 function CoreLayout({ children }) {
   return (
-    <div>
-      <HeaderView />
-      <div className='page-container'>
-        <div className='view-container'>
+    <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <HeaderView/>
+      <main className="mdl-layout__content">
+        <div className="page-content">
           {children}
         </div>
-      </div>
+      </main>
     </div>
   );
 }
