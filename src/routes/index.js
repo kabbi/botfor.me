@@ -9,11 +9,13 @@ import CoreLayout from 'layouts/CoreLayout';
 import HomeView from 'views/HomeView';
 import AboutView from 'views/AboutView';
 import SignInView from 'views/SignInView';
+import SignUpView from 'views/SignUpView';
 
 export default (
   <Route path='/' component={CoreLayout}>
-    <IndexRoute component={HomeView} />
-    <Route path='/about' component={AboutView} />
-    <Route path='/signin' component={SignInView} />
+    <IndexRoute component={HomeView}/>
+    <Route path='/about' component={AboutView}/>
+    <Route path='/signin' component={SignInView}/>
+    <Route path='/signup' component={SignUpView}/>
   </Route>
 );
