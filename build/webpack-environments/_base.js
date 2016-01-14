@@ -93,17 +93,7 @@ const webpackConfig = {
           'style',
           CSS_LOADER,
           'postcss'
-        ],
-        include: paths.client('src')
-      },
-      {
-        test: /\.css$/,
-        loaders: [
-          'style',
-          'css?sourceMap',
-          'postcss'
-        ],
-        exclude: paths.client('src')
+        ]
       },
       /* eslint-disable */
       { test: /\.woff(\?.*)?$/,  loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff' },
