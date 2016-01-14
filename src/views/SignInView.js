@@ -15,11 +15,11 @@ export class SignInView extends React.Component {
                 <div className="mdl-cell mdl-cell--1-col"></div>
                 <div className="mdl-cell mdl-cell--10-col">
                   <form action="#">
-                    <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={{width: '100%'}}>
+                    <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label bfm-width--full">
                       <input className="mdl-textfield__input" type="text" id="sample3"/>
                       <label className="mdl-textfield__label">Email</label>
                     </div>
-                    <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={{width: '100%'}}>
+                    <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label bfm-width--full">
                       <input className="mdl-textfield__input" type="password" id="sample4"/>
                       <label className="mdl-textfield__label">Password</label>
                     </div>
@@ -27,8 +27,7 @@ export class SignInView extends React.Component {
                       Forgot password
                     </Link>
                     <button type="submit"
-                      className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                      style={{float: 'right'}}>
+                      className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored bfm-float--right">
                       Login
                     </button>
                   </form>

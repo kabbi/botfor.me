@@ -25,7 +25,7 @@ const config = {
   // ----------------------------------
   // Compiler Configuration
   // ----------------------------------
-  compiler_css_modules     : true,
+  compiler_css_modules     : false,
   compiler_enable_hmr      : false,
   compiler_globals         : {
     'React' : 'react',
