@@ -1,25 +1,18 @@
 import '../styles/core.scss';
 
-import 'material-design-lite/material.min.css';
-import 'material-design-lite/material.min.js';
+import { Button } from 'react-bootstrap';
 
 import HeaderView from 'views/HeaderView';
-import MaterialLiteUpgrade from 'components/MaterialLiteUpgrade';
 import Drawer from 'components/dashboard/Drawer';
 
 function CoreLayout({ children }) {
   return (
-    <MaterialLiteUpgrade>
-      <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
-        <HeaderView/>
-        <Drawer/>
-        <main className="mdl-layout__content">
-          <div className="page-content">
-            {children}
-          </div>
-        </main>
+    <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+      <HeaderView/>
+      <div>
+        <Button bsStyle="primary">Default</Button>
       </div>
-    </MaterialLiteUpgrade>
+    </div>
   );
 }
 

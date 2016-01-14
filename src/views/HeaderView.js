@@ -1,28 +1,22 @@
+import { Navbar, Nav } from 'react-bootstrap';
+
 import { Link } from 'react-router';
+import NavItemLink from 'components/NavItemLink';
 
 export class HeaderView extends React.Component {
   render() {
     return (
-      <header className="mdl-layout__header">
-        <div className="mdl-layout__header-row">
-          <span className="mdl-layout-title">
-            <Link to="/">
-              <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-                <i className="material-icons">send</i>
-              </button>
-            </Link>
-          </span>
-          <nav className="mdl-navigation">
-            <Link to="signup" className="mdl-navigation__link">SIGN UP</Link>
-            <Link to="signin" className="mdl-navigation__link">LOGIN</Link>
-          </nav>
-          <div className="mdl-layout-spacer"></div>
-          <nav className="mdl-navigation">
-            <Link to="signup" className="mdl-navigation__link">SIGN UP</Link>
-            <Link to="signin" className="mdl-navigation__link">LOGIN</Link>
-          </nav>
-        </div>
-      </header>
+      <Navbar inverse>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <Link to="/">botfor.me</Link>
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Nav pullRight>
+          <NavItemLink href="signin">Sign In</NavItemLink>
+          <NavItemLink href="signup">Sign Up</NavItemLink>
+        </Nav>
+      </Navbar>
     );
   }
 }

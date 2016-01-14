@@ -11,5 +11,6 @@ For example:
 @import './themes/default'
 */
 
-@import './global';
-@import './dashboard';
+@import './vendor/variables';
+@import './vendor/bootstrap';
+@import './vendor/bootswatch';

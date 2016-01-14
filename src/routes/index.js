@@ -14,8 +14,8 @@ import SignUpView from 'views/SignUpView';
 export default (
   <Route path='/' component={CoreLayout}>
     <IndexRoute component={HomeView}/>
-    <Route path='/about' component={AboutView}/>
-    <Route path='/signin' component={SignInView}/>
-    <Route path='/signup' component={SignUpView}/>
+    <Route path='about' component={AboutView}/>
+    <Route path='signin' component={SignInView}/>
+    <Route path='signup' component={SignUpView}/>
   </Route>
 );
