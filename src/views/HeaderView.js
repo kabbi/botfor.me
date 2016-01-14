@@ -12,6 +12,10 @@ export class HeaderView extends React.Component {
               </button>
             </Link>
           </span>
+          <nav className="mdl-navigation">
+            <Link to="signup" className="mdl-navigation__link">SIGN UP</Link>
+            <Link to="signin" className="mdl-navigation__link">LOGIN</Link>
+          </nav>
           <div className="mdl-layout-spacer"></div>
           <nav className="mdl-navigation">
             <Link to="signup" className="mdl-navigation__link">SIGN UP</Link>
