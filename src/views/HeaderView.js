@@ -1,7 +1,7 @@
 import { Navbar, Nav } from 'react-bootstrap';
 
 import { Link } from 'react-router';
-import NavItemLink from 'components/NavItemLink';
+import NavItemLink from 'components/redux/NavItemLink';
 
 export class HeaderView extends React.Component {
   render() {
