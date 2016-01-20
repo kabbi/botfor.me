@@ -15,7 +15,10 @@
     "__BASENAME__" : false,
     "__MAINTAINING_MODE__" : false,
     "React": true,
-    "ReactDOM": true
+    "ReactDOM": true,
+    "Grid": true,
+    "Row": true,
+    "Col": true
   },
   "rules": {
     "space-before-function-paren": [2, "never"],

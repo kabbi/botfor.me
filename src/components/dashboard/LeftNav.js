@@ -2,7 +2,7 @@ import { NavItem, Nav, Panel } from 'react-bootstrap';
 
 const handleSelect = () => {};
 
-const Drawer = () => (
+const LeftNav = () => (
   <Panel>
     <p className="lead drawer-title">Dashboard</p>
     <Nav bsStyle="pills" stacked onSelect={handleSelect}>
@@ -17,4 +17,4 @@ const Drawer = () => (
   </Panel>
 );
 
-export default Drawer;
+export default LeftNav;
