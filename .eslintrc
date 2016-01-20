@@ -21,6 +21,6 @@
     "space-before-function-paren": [2, "never"],
     "semi" : [2, "always"],
     "react-in-jsx-scope": 0,
-    "jsx-quotes": 0
+    "jsx-quotes": [2, "prefer-double"]
   }
 }

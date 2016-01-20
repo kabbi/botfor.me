@@ -15,4 +15,4 @@ module.exports = function(compiler, publicPath) {
     lazy: false,
     stats: config.compiler_stats
   });
-}
+};

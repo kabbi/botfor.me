@@ -3,10 +3,10 @@ import { Link } from 'react-router';
 export class AboutView extends React.Component {
   render() {
     return (
-      <div className='container text-center'>
+      <div className="container text-center">
         <h1>This is the about view!</h1>
         <hr />
-        <Link to='/'>Back To Home View</Link>
+        <Link to="/">Back To Home View</Link>
       </div>
     );
   }

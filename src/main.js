@@ -8,7 +8,7 @@ import MaintainingView from 'views/MaintainingView';
 
 if (__MAINTAINING_MODE__) {
   ReactDOM.render(
-    <MaintainingView />,
+    <MaintainingView/>,
     document.getElementById('root')
   );
 } else {
@@ -21,8 +21,7 @@ if (__MAINTAINING_MODE__) {
 
   // Render the React application to the DOM
   ReactDOM.render(
-    <Root history={history} routes={routes} store={store} />,
+    <Root history={history} routes={routes} store={store}/>,
     document.getElementById('root')
   );
 }
-
