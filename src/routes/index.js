@@ -8,6 +8,7 @@ import AboutView from 'views/AboutView';
 import SignInView from 'views/SignInView';
 import SignUpView from 'views/SignUpView';
 import DashboardView from 'views/DashboardView';
+import DrawerView from 'views/DrawerView';
 
 import WelcomeDevcard from 'views/devcards/WelcomeDevcard';
 
@@ -18,6 +19,7 @@ export default (
     <Route path="signin" component={SignInView}/>
     <Route path="signup" component={SignUpView}/>
     <Route path="dashboard" component={DashboardView}/>
+    <Route path="drawer" component={DrawerView}/>
 
     <Route path="devcards" component={DevcardsLayout}>
       <IndexRoute component={WelcomeDevcard}/>
