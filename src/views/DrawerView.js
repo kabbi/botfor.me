@@ -5,10 +5,10 @@ export class DashboardView extends React.Component {
     return (
       <Grid fluid>
         <Row>
-          <Col xs={2}>
+          <Col xs={3}>
             <Drawer/>
           </Col>
-          <Col xs={10}>
+          <Col xs={9}>
             SVG MAGIC HERE
           </Col>
         </Row>
