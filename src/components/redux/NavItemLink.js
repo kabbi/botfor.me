@@ -1,32 +1,25 @@
-import { connect } from 'react-redux';
-import { pushPath } from 'redux-simple-router';
-
 import { NavItem } from 'react-bootstrap';
 
-const mapDispatchToProps = {
-  pushPath: pushPath
-};
-
-class NavItemLink extends React.Component {
-
-  static propTypes = {
-    href: React.PropTypes.string.isRequired,
-    children: React.PropTypes.node.isRequired,
-    pushPath: React.PropTypes.func.isRequired
+export default class NavItemLink extends React.Component {
+  static contextTypes = {
+    history: React.PropTypes.object
   };
 
-  handleNavItemClick(href, e) {
-    e.preventDefault();
-    this.props.pushPath(href);
+  static propTypes = {
+    to: React.PropTypes.string.isRequired,
+    children: React.PropTypes.node.isRequired
+  };
+
+  handleNavItemClick(to, event) {
+    event.preventDefault();
+    this.context.history.pushState(null, to);
   }
 
   render() {
     return (
-      <NavItem onClick={this.handleNavItemClick.bind(this, this.props.href)} {...this.props}>
+      <NavItem onClick={this.handleNavItemClick.bind(this, this.props.to)} {...this.props}>
         {this.props.children}
       </NavItem>
     );
   }
 }
-
-export default connect(null, mapDispatchToProps)(NavItemLink);
