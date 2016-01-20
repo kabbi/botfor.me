@@ -13,8 +13,8 @@ export class HeaderView extends React.Component {
           </Navbar.Brand>
         </Navbar.Header>
         <Nav pullRight>
-          <NavItemLink href="signin">Sign In</NavItemLink>
-          <NavItemLink href="signup">Sign Up</NavItemLink>
+          <NavItemLink to="signin">Sign In</NavItemLink>
+          <NavItemLink to="signup">Sign Up</NavItemLink>
         </Nav>
       </Navbar>
     );
