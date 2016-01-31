@@ -117,7 +117,8 @@ Common configuration options:
 * `dir_src` - application source code base path
 * `dir_dist` - path to build compiled application to
 * `server_host` - hostname for the Koa server
-* `server_port` - port for the Koa server
+* `app_server_port` - port for the Koa api server
+* `static_server_port` - port for the Koa webpack server
 * `compiler_css_modules` - whether or not to enable CSS modules
 * `compiler_source_maps` - whether or not to generate source maps
 * `compiler_vendor` - packages to separate into to the vendor bundle

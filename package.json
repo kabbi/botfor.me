@@ -13,7 +13,8 @@
     "lint": "eslint . ./",
     "lint:fix": "npm run lint -- --fix",
     "start": "npm run dev",
-    "dev": "node -r dotenv/config bin/server --hot",
+    "server": "nodemon -i src -x 'node -r dotenv/config bin/app-server'",
+    "dev": "node -r dotenv/config bin/static-server --hot",
     "dev:nw": "npm run dev -- --nw",
     "dev:no-debug": "npm run dev -- --no_debug",
     "test": "node -r dotenv/config ./node_modules/karma/bin/karma start bin/karma.js",
@@ -28,6 +29,7 @@
   "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
   "license": "MIT",
   "dependencies": {
+    "d3": "^3.5.14",
     "debug": "^2.2.0",
     "dotenv": "^1.2.0",
     "history": "^1.17.0",
@@ -45,6 +47,7 @@
     "redux-actions": "^0.9.0",
     "redux-simple-router": "^1.0.1",
     "redux-thunk": "^1.0.0",
+    "socket.io": "^1.4.4",
     "url": "^0.11.0",
     "yargs": "^3.18.0"
   },
@@ -90,6 +93,7 @@
     "koa-webpack-hot-middleware": "^1.0.3",
     "mocha": "^2.2.5",
     "node-sass": "^3.3.3",
+    "nodemon": "^1.8.1",
     "phantomjs": "^1.9.17",
     "phantomjs-polyfill": "0.0.1",
     "postcss-loader": "^0.8.0",
@@ -100,6 +104,7 @@
     "sass-loader": "^3.0.0",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
+    "socket.io-client": "^1.4.4",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.9"

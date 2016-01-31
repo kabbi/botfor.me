@@ -2,12 +2,11 @@ const webpack = require('webpack');
 const webpackConfig = require('../build/webpack.config');
 const config = require('../config');
 
-const debug = require('debug')('app:server');
+const debug = require('debug')('app:static-server');
 const paths = config.utils_paths;
 const app = require('koa')();
 
-// Load api routes
-require('./routes')(app);
+const server = require('http').Server(app.callback());
 
 // This rewrites all routes requests to the root /index.html file
 // (ignoring file requests). If you want to implement isomorphic
@@ -48,4 +47,4 @@ if (config.compiler_enable_hmr) {
   app.use(serve(paths.base(config.dir_dist)));
 }
 
-module.exports = app;
+module.exports = server;

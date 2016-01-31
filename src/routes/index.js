@@ -9,6 +9,8 @@ import SignInView from 'views/SignInView';
 import SignUpView from 'views/SignUpView';
 
 import WelcomeDevcard from 'views/devcards/WelcomeDevcard';
+import OnlineStatusDevcard from 'views/devcards/OnlineStatusDevcard';
+import SvgDevcard from 'views/devcards/SvgDevcard';
 
 export default (
   <Route path="/" component={CoreLayout}>
@@ -20,6 +22,8 @@ export default (
     <Route path="devcards" component={DevcardsLayout}>
       <IndexRoute component={WelcomeDevcard}/>
       <Route path="welcome" component={WelcomeDevcard}/>
+      <Route path="status" component={OnlineStatusDevcard}/>
+      <Route path="svg" component={SvgDevcard}/>
     </Route>
   </Route>
 );

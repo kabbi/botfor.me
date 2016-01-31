@@ -20,7 +20,9 @@ const config = {
   // Server Configuration
   // ----------------------------------
   server_host : 'localhost',
-  server_port : process.env.PORT || 3000,
+  app_server_port : process.env.PORT || 3042,
+  static_server_port : process.env.PORT || 3000,
+  serve_static_files : true,
 
   // ----------------------------------
   // Compiler Configuration
@@ -78,6 +80,7 @@ config.globals = {
     'NODE_ENV' : JSON.stringify(config.env)
   },
   'NODE_ENV'     : config.env,
+  '__API_HOST__' : `'http://${config.server_host}:${config.app_server_port}/'`,
   '__DEV__'      : config.env === 'development',
   '__PROD__'     : config.env === 'production',
   '__DEBUG__'    : config.env === 'development' && !argv.no_debug,
