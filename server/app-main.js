@@ -16,13 +16,10 @@ io.on('connection', (socket) => {
 });
 
 // Load api routes
-require('./routes')(app);
+require('./api/routes')(app);
 
-// ------------------------------------
-// Apply Webpack HMR Middleware
-// ------------------------------------
-const serve = require('koa-static');
 if (config.serve_static_files) {
+  const serve = require('koa-static');
   // This rewrites all routes requests to the root /index.html file
   // (ignoring file requests). If you want to implement isomorphic
   // rendering, you'll want to remove this middleware.
