@@ -31,7 +31,11 @@ const config = {
   compiler_enable_hmr      : false,
   compiler_globals         : {
     'React' : 'react',
-    'ReactDOM' : 'react-dom'
+    'ReactDOM' : 'react-dom',
+    // react-bootstrap
+    'Grid': 'react-bootstrap/lib/Grid',
+    'Row': 'react-bootstrap/lib/Row',
+    'Col': 'react-bootstrap/lib/Col'
   },
   compiler_source_maps     : true,
   compiler_hash_type       : 'hash',

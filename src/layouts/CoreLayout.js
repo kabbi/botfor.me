@@ -4,7 +4,7 @@ import HeaderView from 'views/HeaderView';
 
 function CoreLayout({ children }) {
   return (
-    <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+    <div className="bfm">
       <HeaderView/>
       {children}
     </div>

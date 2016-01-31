@@ -9,7 +9,7 @@ export class HeaderView extends React.Component {
       <Navbar inverse>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/">xxxxxxxxx</Link>
+            <Link to="/">botfor.me</Link>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav pullRight>
