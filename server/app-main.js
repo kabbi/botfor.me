@@ -1,5 +1,6 @@
 const config = require('../config');
 
+const Mongorito = require('mongorito');
 const debug = require('debug')('app:app-server');
 const paths = config.utils_paths;
 const app = require('koa')();
@@ -8,6 +9,8 @@ const server = require('http').Server(app.callback());
 const io = require('socket.io')(server, {
   path: '/api/socket.io'
 });
+
+Mongorito.connect('localhost/botforme');
 
 io.on('connection', (socket) => {
   setInterval(() => {
