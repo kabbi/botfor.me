@@ -3,6 +3,7 @@ const config = require('../config');
 const Mongorito = require('mongorito');
 const debug = require('debug')('app:app-server');
 const paths = config.utils_paths;
+const logger = require('koa-logger')
 const app = require('koa')();
 
 const server = require('http').Server(app.callback());
@@ -17,6 +18,10 @@ io.on('connection', (socket) => {
     socket.emit('message', 'hello, the time now: ' + new Date().toTimeString());
   }, 1000);
 });
+
+if (config.env === 'development') {
+  app.use(logger());
+}
 
 // Load api routes
 require('./api/routes')(app);

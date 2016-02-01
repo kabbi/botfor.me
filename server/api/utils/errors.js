@@ -19,15 +19,15 @@ exports.ApiError = class ApiError extends ExtendableError {
 exports.handleApiErrors = function *(next) {
   try {
     yield next;
-  } catch (e) {
-    if (e instanceof exports.ApiError) {
-      this.status = e.code;
+  } catch (error) {
+    if (error instanceof exports.ApiError) {
+      this.status = error.code;
       this.body = {
         error: true,
-        exception: e
+        exception: error
       };
       return;
     }
-    throw e;
+    throw error;
   }
 };
