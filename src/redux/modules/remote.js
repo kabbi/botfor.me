@@ -24,7 +24,6 @@ export const constants = {
 };
 
 export const connect = () => (dispatch, getState) => {
-  console.log(__API_HOST__);
   const socket = io(__API_HOST__, {
     path: '/api/socket.io'
   });

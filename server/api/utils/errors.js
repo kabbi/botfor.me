@@ -11,7 +11,7 @@ exports.ApiError = class ApiError extends ExtendableError {
     return {
       code: this.code,
       message: this.message,
-      ...this.data
+      data: this.data
     };
   }
 };

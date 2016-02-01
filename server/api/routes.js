@@ -1,3 +1,5 @@
+'use strict';
+
 const mount = require('koa-mount');
 
 const API_URL = '/api';

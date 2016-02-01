@@ -1,7 +1,9 @@
+'use strict';
+
 const { Model } = require('mongorito');
 const { ApiError } = require('../utils/errors');
 
-export default class User extends Model {
+module.exports = class User extends Model {
   configure() {
     this.before('create', 'checkIfExists');
   }
@@ -11,4 +13,4 @@ export default class User extends Model {
       throw new ApiError('The user with this email already exists');
     }
   }
-}
+};

@@ -1,7 +1,9 @@
-/* eslint key-spacing:0 */
-import { argv } from 'yargs';
+'use strict';
 
-export default (config) => {
+/* eslint key-spacing:0 */
+const { argv } = require('yargs');
+
+module.exports = (config) => {
   const HMR_ENABLED = !!argv.hot;
   const overrides = {
     compiler_enable_hmr : HMR_ENABLED,

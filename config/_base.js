@@ -1,9 +1,10 @@
-/* eslint key-spacing:0 spaced-comment:0 */
-import _debug from 'debug';
-import path from 'path';
-import { argv } from 'yargs';
+'use strict';
 
-const debug = _debug('app:config:_base');
+/* eslint key-spacing:0 spaced-comment:0 */
+const path = require('path');
+const { argv } = require('yargs');
+
+const debug = require('debug')('app:config:_base');
 const config = {
   env : process.env.NODE_ENV,
 
@@ -125,4 +126,4 @@ config.utils_paths = (() => {
   };
 })();
 
-export default config;
+module.exports = config;

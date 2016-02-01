@@ -1,3 +1,5 @@
+'use strict';
+
 const User = require('./User.model');
 const { ApiError } = require('../utils/errors');
 
@@ -9,7 +11,7 @@ exports.userById = function *(id, next) {
   yield next;
 };
 
-exports.index = function *() {
+exports.list = function *() {
   this.body = yield User.all();
 };
 
@@ -23,11 +25,12 @@ exports.create = function *() {
 };
 
 exports.update = function *() {
-  const user = new User({
-    ...this.state.user,
-    ...this.request.body,
-    _id: this.state.user.get('_id')
-  });
+  const user = new User(Object.assign(
+    this.state.user,
+    this.request.body, {
+      _id: this.state.user.get('_id')
+    }
+  ));
   this.body = yield user.save();
 };
 

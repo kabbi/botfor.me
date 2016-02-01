@@ -1,12 +1,10 @@
-'use strict';
-
 const controller = require('./User.controller.js');
 const router = require('koa-router')();
 const body = require('koa-body')();
 
 router.param('userId', controller.userById);
 
-router.get('/', controller.list);
+router.get('/', controller.index);
 router.post('/', body, controller.create);
 
 router.get('/:userId', controller.fetch);

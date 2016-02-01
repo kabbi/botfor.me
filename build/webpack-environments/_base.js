@@ -1,12 +1,13 @@
-import webpack from 'webpack';
-import cssnano from 'cssnano';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import config from '../../config';
-import _debug from 'debug';
+'use strict';
+
+const webpack = require('webpack');
+const cssnano = require('cssnano');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const config = require('../../config');
 
 const paths = config.utils_paths;
-const debug = _debug('app:webpack:_base');
+const debug = require('debug')('app:webpack:_base');
 debug('Create configuration.');
 
 const CSS_LOADER = !config.compiler_css_modules
@@ -157,4 +158,4 @@ commonChunkPlugin.__KARMA_IGNORE__ = true;
 
 webpackConfig.plugins.push(commonChunkPlugin);
 
-export default webpackConfig;
+module.exports = webpackConfig;

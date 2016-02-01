@@ -1,11 +1,12 @@
+'use strict';
+
 /* eslint key-spacing:0 */
-import webpack from 'webpack';
-import config from '../../config';
-import _debug from 'debug';
+const webpack = require('webpack');
+const config = require('../../config');
 
-const debug = _debug('app:webpack:development');
+const debug = require('debug')('app:webpack:development');
 
-export default (webpackConfig) => {
+module.exports = (webpackConfig) => {
   debug('Create configuration.');
 
   debug('Enable devtool: "source-maps".');

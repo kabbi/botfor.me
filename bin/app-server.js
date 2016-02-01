@@ -1,4 +1,4 @@
-require('babel-register');
+'use strict';
 
 const config = require('../config');
 const server = require('../server/app-main');

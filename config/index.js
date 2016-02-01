@@ -1,8 +1,8 @@
-import _debug from 'debug';
+'use strict';
 
-const debug = _debug('app:config');
+const debug = require('debug')('app:config');
 debug('Create configuration.');
-import base from './_base';
+const base = require('./_base');
 
 debug(`Apply environment overrides for NODE_ENV "${base.env}".`);
 let overrides;
@@ -14,4 +14,4 @@ try {
   );
 }
 
-export default Object.assign({}, base, overrides);
+module.exports = Object.assign({}, base, overrides);

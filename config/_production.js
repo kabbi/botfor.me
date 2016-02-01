@@ -1,5 +1,7 @@
+'use strict';
+
 /* eslint key-spacing:0 */
-export default (config) => ({
+module.exports = (config) => ({
   compiler_fail_on_warning : false,
   compiler_hash_type       : 'chunkhash',
   compiler_source_maps     : false,

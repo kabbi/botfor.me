@@ -1,10 +1,11 @@
-import webpack from 'webpack';
-import config from '../../config';
-import _debug from 'debug';
+'use strict';
 
-const debug = _debug('app:webpack:production');
+const webpack = require('webpack');
+const config = require('../../config');
 
-export default (webpackConfig) => {
+const debug = require('debug')('app:webpack:production');
+
+module.exports = (webpackConfig) => {
   debug('Create configuration.');
 
   if (config.compiler_source_maps) {

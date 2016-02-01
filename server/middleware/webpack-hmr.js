@@ -1,3 +1,5 @@
+'use strict';
+
 const debug = require('debug')('app:server:webpack-hmr');
 
 module.exports = function(compiler) {

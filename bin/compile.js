@@ -1,4 +1,4 @@
-require('babel-register');
+'use strict';
 
 const config = require('../config');
 const debug = require('debug')('app:bin:compile');

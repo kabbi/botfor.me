@@ -1,9 +1,11 @@
+'use strict';
+
 const config = require('../config');
 
 const Mongorito = require('mongorito');
 const debug = require('debug')('app:app-server');
 const paths = config.utils_paths;
-const logger = require('koa-logger')
+const logger = require('koa-logger');
 const app = require('koa')();
 
 const server = require('http').Server(app.callback());
