@@ -1,43 +1,79 @@
-import { connect } from 'react-redux';
+import { Thumbnail } from 'react-bootstrap';
 import { Link } from 'react-router';
-import { actions as counterActions } from '../redux/modules/counter';
 
-// We define mapStateToProps where we'd normally use
-// the @connect decorator so the data requirements are clear upfront, but then
-// export the decorated component after the main class definition so
-// the component can be tested w/ and w/o being connected.
-// See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
-const mapStateToProps = (state) => ({
-  counter: state.counter
-});
-export class HomeView extends React.Component {
-  static propTypes = {
-    counter: React.PropTypes.number.isRequired,
-    doubleAsync: React.PropTypes.func.isRequired,
-    increment: React.PropTypes.func.isRequired
-  };
+import productPicture from 'static/images/feature.png';
+import featureThumb from 'static/images/thumb.png';
 
+export default class HomeView extends React.Component {
   render() {
     return (
-      <div className="container text-center">
-        <h1>Welcome to the React Redux Starter Kit</h1>
-        <h2>
-          Sample Counter:&nbsp;
-          <span>{this.props.counter}</span>
-        </h2>
-        <button className="btn btn-default"
-                onClick={() => this.props.increment(1)}>
-          Increment
-        </button>
-        <button className="btn btn-default"
-                onClick={this.props.doubleAsync}>
-          Double (Async)
-        </button>
-        <hr />
-        <Link to="/about">Go To About View</Link>
-      </div>
+      <Grid>
+        <Row className="text-center">
+          <h1>
+            Cool bots for you with <strong>botfor.me</strong>!
+          </h1>
+          <h5 className="text-muted">
+            Get your first real bot up and running without writing any code
+          </h5>
+          <div>
+            <img src={productPicture}/>
+          </div>
+          <p>
+            And a stolen picture here.
+          </p>
+        </Row>
+        <hr/>
+        <Row>
+          <Col md={12} className="text-center">
+            <h1>
+              Feature descriptions
+            </h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={3}>
+            <Thumbnail src={featureThumb} alt="242x200">
+              <p className="text-center">Description</p>
+            </Thumbnail>
+          </Col>
+          <Col md={3}>
+            <Thumbnail src={featureThumb} alt="242x200">
+              <p className="text-center">Description</p>
+            </Thumbnail>
+          </Col>
+          <Col md={3}>
+            <Thumbnail src={featureThumb} alt="242x200">
+              <p className="text-center">Description</p>
+            </Thumbnail>
+          </Col>
+          <Col md={3}>
+            <Thumbnail src={featureThumb} alt="242x200">
+              <p className="text-center">Description</p>
+            </Thumbnail>
+          </Col>
+        </Row>
+        <hr/>
+        <Row>
+          <Col>
+            <p>
+              Advanced feature descriptions here
+            </p>
+          </Col>
+        </Row>
+        <hr/>
+        <Row>
+          <Col>
+            <p>
+              Pricing table here
+            </p>
+          </Col>
+          <Col className="text-center">
+            <Link to="/signup" className="btn btn-lg btn-info">
+              Sign Up Now
+            </Link>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }
-
-export default connect(mapStateToProps, counterActions)(HomeView);

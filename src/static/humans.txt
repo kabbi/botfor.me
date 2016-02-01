@@ -2,6 +2,7 @@
 
 # TEAM
 
+    Zubr Kabbi -- developer -- https://kabbi.github.io
     <name> -- <role> -- <twitter>
 
 # THANKS
