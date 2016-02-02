@@ -1,30 +1,22 @@
-const ExtendableError = require('es6-error');
-
-exports.ApiError = class ApiError extends ExtendableError {
-  constructor(message, data, code = 400) {
-    super(message);
-    this.code = code;
-    this.data = data;
-  }
-
-  toJSON() {
-    return {
-      code: this.code,
-      message: this.message,
-      data: this.data
-    };
-  }
-};
+const debug = require('debug')('app:app-server:api:utils:errors');
 
 exports.handleApiErrors = function *(next) {
   try {
     yield next;
+    if (this.body && !this.state.skipErrorPopulation) {
+      this.body = {
+        error: false,
+        data: this.body
+      };
+    }
   } catch (error) {
-    if (error instanceof exports.ApiError) {
-      this.status = error.code;
+    debug('Got an exception', error);
+    if (error.expose) {
+      this.status = error.status;
       this.body = {
         error: true,
-        exception: error
+        message: error.message,
+        data: error.data
       };
       return;
     }

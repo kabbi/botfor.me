@@ -1,12 +1,15 @@
 'use strict';
 
 const User = require('./User.model');
-const { ApiError } = require('../utils/errors');
+
+exports.me = function *() {
+  this.body = this.state.user;
+};
 
 exports.userById = function *(id, next) {
   this.state.user = yield User.findById(id);
   if (!this.state.user) {
-    throw new ApiError('User not found', { id }, 404);
+    this.throw(404, 'User not found');
   }
   yield next;
 };

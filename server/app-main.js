@@ -5,7 +5,6 @@ const config = require('../config');
 const Mongorito = require('mongorito');
 const debug = require('debug')('app:app-server');
 const paths = config.utils_paths;
-const logger = require('koa-logger');
 const app = require('koa')();
 
 const server = require('http').Server(app.callback());
@@ -22,7 +21,7 @@ io.on('connection', (socket) => {
 });
 
 if (config.env === 'development') {
-  app.use(logger());
+  app.use(require('koa-logger')());
 }
 
 // Load api routes

@@ -24,6 +24,7 @@ const config = {
   app_server_port : process.env.PORT || 3042,
   static_server_port : process.env.PORT || 3000,
   serve_static_files : true,
+  jwt_shared_secret: 'botforsecret-23442-asEsswP',
 
   // ----------------------------------
   // Compiler Configuration

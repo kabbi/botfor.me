@@ -6,6 +6,8 @@ const body = require('koa-body')();
 
 router.param('userId', controller.userById);
 
+router.get('/me', controller.me);
+
 router.get('/', controller.list);
 router.post('/', body, controller.create);
 
