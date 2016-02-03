@@ -21,6 +21,10 @@ ValidatedInput.propTypes = {
   onChange: React.PropTypes.func
 };
 
+ValidatedInput.defaultProps = {
+  errors: {}
+};
+
 ValidatedInput = formControl(ValidatedInput);
 
 export default ValidatedInput;
