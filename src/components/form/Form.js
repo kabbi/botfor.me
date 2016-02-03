@@ -23,6 +23,11 @@ export default class Form extends Component {
 
   state = this.calculateInitialState();
 
+  submit() {
+    const event = new Event('submit');
+    this.refs.form.dispatchEvent(event);
+  }
+
   hasErrors() {
     return Object.keys(this.state).reduce((error, key) => (
       this.state[key].error || error
@@ -40,6 +45,9 @@ export default class Form extends Component {
   calculateInitialState(children = this.props.children, state = {}) {
     const { initialState } = this.props;
     Children.forEach(children, child => {
+      if (!child) {
+        return;
+      }
       if (child.type && child.type[FORM_CONTROL_TOKEN]) {
         const { model } = child.props;
         state[model] = initialState[model] || { dirty: false };
@@ -53,6 +61,9 @@ export default class Form extends Component {
 
   extendAllSupportedChildren(children = this.props.children) {
     return Children.map(children, (child, index) => {
+      if (!child) {
+        return child;
+      }
       if (child.type && child.type[FORM_CONTROL_TOKEN]) {
         const { model } = child.props;
         return React.cloneElement(child, {
@@ -90,7 +101,7 @@ export default class Form extends Component {
 
   render() {
     return (
-      <form action="#" onSubmit={::this.handleSubmit} className={this.props.className} noValidate>
+      <form ref="form" action="#" onSubmit={::this.handleSubmit} className={this.props.className} noValidate>
         {this.extendAllSupportedChildren()}
       </form>
     );

@@ -14,24 +14,25 @@ exports.index = function *() {
 };
 
 exports.fetch = function *() {
-  this.body = this.state.user;
+  this.body = this.state.bot;
 };
 
 exports.create = function *() {
-  const user = new Bot(this.request.body);
-  this.body = yield user.save();
+  const bot = new Bot(this.request.body);
+  this.body = yield bot.save();
 };
 
 exports.update = function *() {
-  const user = new Bot({
-    ...this.state.user,
-    ...this.request.body,
-    _id: this.state.user.get('_id')
-  });
-  this.body = yield user.save();
+  const bot = new Bot(Object.assign(
+    this.state.bot,
+    this.request.body, {
+      _id: this.state.bot.get('_id')
+    }
+  ));
+  this.body = yield bot.save();
 };
 
 exports.remove = function *() {
-  yield this.state.user.remove();
+  yield this.state.bot.remove();
   this.body = {};
 };

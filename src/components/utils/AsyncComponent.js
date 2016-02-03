@@ -16,7 +16,7 @@ export default class AsyncComponent extends React.Component {
       }
     });
 
-    promise.then(result => {
+    return promise.then(result => {
       if (this.unmounted) {
         return result;
       }
@@ -25,6 +25,7 @@ export default class AsyncComponent extends React.Component {
           result
         }
       });
+      return result;
     }, error => {
       if (this.unmounted) {
         return error;
@@ -34,6 +35,7 @@ export default class AsyncComponent extends React.Component {
           error
         }
       });
+      return error;
     });
   }
 
