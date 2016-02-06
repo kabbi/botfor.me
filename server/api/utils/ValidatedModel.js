@@ -33,6 +33,9 @@ module.exports = class ValidatedModel extends Model {
     return {
       type: 'object',
       properties: {
+        _id: {
+          type: 'object'
+        },
         created_at: {
           type: 'object'
         },

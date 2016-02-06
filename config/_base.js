@@ -18,6 +18,17 @@ const config = {
   dir_test   : 'tests',
 
   // ----------------------------------
+  // App Configuration
+  // ----------------------------------
+
+  consul_params : {
+    host: '192.168.140.42',
+    promisify: true
+  },
+
+  nomad_host : 'http://192.168.140.42:4646',
+
+  // ----------------------------------
   // Server Configuration
   // ----------------------------------
   server_host : 'localhost',

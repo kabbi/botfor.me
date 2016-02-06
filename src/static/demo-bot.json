@@ -1,0 +1,27 @@
+{
+  "id": "demo-flow",
+  "nodes": [{
+    "id": "stdio-node",
+    "type": "stdio@1.0.0"
+  }, {
+    "id": "stringify-node",
+    "type": "json-stringify@1.0.0"
+  }, {
+    "id": "timer-node",
+    "type": "timer@1.0.0",
+    "props": {
+      "data": {
+        "hello": "world!"
+      }
+    }
+  }],
+  "links": [{
+    "id": "conn-timer",
+    "from": ["timer-node", "data"],
+    "to": ["stringify-node", "objects"]
+  }, {
+    "id": "conn-stdout",
+    "from": ["stringify-node", "data"],
+    "to": ["stdio-node", "stdout"]
+  }]
+}

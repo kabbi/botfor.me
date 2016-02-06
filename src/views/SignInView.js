@@ -1,4 +1,4 @@
-import { ButtonInput } from 'react-bootstrap';
+import { Alert, ButtonInput } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import Form from 'components/form/Form';
@@ -33,6 +33,11 @@ export class SignInView extends AsyncComponent {
       <Grid>
         <Row>
           <Col md={4} mdOffset={4}>
+            {result && result.error && (
+              <Alert bsStyle="danger" onDismiss={this.resetStatus.bind(this, 'signin')}>
+                <strong>Error:</strong> {result.message}
+              </Alert>
+            )}
             <Form onSubmit={::this.handleSubmit}>
               <h2>
                 Welcome back
@@ -40,11 +45,7 @@ export class SignInView extends AsyncComponent {
 
               <ValidatedInput model="email" type="text" placeholder="E-mail"/>
               <ValidatedInput model="password" type="password" placeholder="Password"/>
-              {result && result.error && (
-                <p className="text-danger">
-                  {result.message}
-                </p>
-              )}
+
               <ButtonInput className="btn-block"
                 disabled={pending}
                 bsSize="large"

@@ -11,4 +11,9 @@ router.get('/:botId', controller.fetch);
 router.post('/:botId', body, controller.update);
 router.delete('/:botId', controller.remove);
 
+router.get('/:botId/status', controller.status);
+router.post('/:botId/deploy', body, controller.deploy);
+router.post('/:botId/start', controller.start);
+router.post('/:botId/stop', controller.stop);
+
 module.exports = router.routes();

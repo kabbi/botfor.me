@@ -8,7 +8,8 @@ import AboutView from 'views/AboutView';
 import SignInView from 'views/SignInView';
 import SignUpView from 'views/SignUpView';
 import DashboardView from 'views/DashboardView';
-import DrawerView from 'views/DrawerView';
+
+import EditorView from 'views/editor/EditorView';
 
 import AuthView from 'views/auth/AuthView';
 
@@ -25,7 +26,7 @@ export default (
     <Route component={AuthView}>
       <Route path="about" component={AboutView}/>
       <Route path="dashboard" component={DashboardView}/>
-      <Route path="drawer" component={DrawerView}/>
+      <Route path="editor/:botId" component={EditorView}/>
 
       <Route path="devcards" component={DevcardsLayout}>
         <IndexRoute component={WelcomeDevcard}/>

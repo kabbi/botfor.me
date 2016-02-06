@@ -1,4 +1,5 @@
-import { Modal, Button } from 'react-bootstrap';
+import { Alert, Button, Modal } from 'react-bootstrap';
+import { pushPath } from 'redux-simple-router';
 import { connect } from 'react-redux';
 
 import Form from 'components/form/Form';
@@ -9,6 +10,7 @@ import api from 'utils/Api';
 export class NewBotModal extends AsyncComponent {
   static propTypes = {
     show: React.PropTypes.bool,
+    dispatch: React.PropTypes.func,
     onClose: React.PropTypes.func.isRequired
   };
 
@@ -21,6 +23,7 @@ export class NewBotModal extends AsyncComponent {
       if (result.error) {
         return;
       }
+      this.props.dispatch(pushPath(`/editor/${result.data._id}`));
     });
   }
 
@@ -38,18 +41,34 @@ export class NewBotModal extends AsyncComponent {
         </Modal.Header>
 
         <Modal.Body>
+          {result && result.error && (
+            <Alert bsStyle="danger" onDismiss={this.resetStatus.bind(this, 'bot')}>
+              <strong>Error:</strong> {result.message}
+            </Alert>
+          )}
           <Form ref="form"
             onSubmit={::this.handleSubmit}
             onChange={this.resetStatus.bind(this, 'bot')}
             controlProps={{errors: (result && result.error && result.data) || {}}}
           >
-            <ValidatedInput label="Your bot name" model="name" type="text" placeholder="For example: Weather Bot"/>
-            <ValidatedInput label="Tags" model="tags" type="text" placeholder="weather, predictions, magic"/>
-            {result && result.error && (
-              <p className="text-danger">
-                {result.message}
-              </p>
-            )}
+            <ValidatedInput model="name"
+              label="Name your bot"
+              type="text"
+              placeholder="For example: Weather Bot"
+              help="Just a general and unique name, to be able to find it among others"
+            />
+            <ValidatedInput model="tags"
+              label="Tags"
+              type="text"
+              placeholder="weather, predictions, magic"
+              help="You can use tags later to organize your bots, or to search public ones"
+            />
+            <ValidatedInput model="public"
+              label="Make this bot public"
+              type="checkbox"
+              placeholder="weather, predictions, magic"
+              help="We will only share the bot structure, your private data will not be visible to anyone"
+            />
           </Form>
         </Modal.Body>
 

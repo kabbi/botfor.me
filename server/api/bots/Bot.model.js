@@ -12,6 +12,13 @@ module.exports = class Bot extends ValidatedModel {
         tags: {
           type: 'string',
           minLength: 1
+        },
+        code: {
+          type: 'string',
+          minLength: 2
+        },
+        started: {
+          type: 'boolean'
         }
       }),
       additionalProperties: false,
