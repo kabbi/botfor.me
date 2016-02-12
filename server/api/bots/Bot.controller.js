@@ -46,7 +46,7 @@ exports.remove = function *() {
 
 exports.deploy = function *() {
   const code = JSON.stringify(this.request.body);
-  yield consul.kv.set(`nodely/flows/${this.state.bot.get('_id')}/data`, code);
+  // yield consul.kv.set(`nodely/flows/${this.state.bot.get('_id')}/data`, code);
 
   this.state.bot.set('code', code);
   yield this.state.bot.save();

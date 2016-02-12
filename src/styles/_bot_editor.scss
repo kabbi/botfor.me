@@ -1,0 +1,23 @@
+.bfm-node-outline {
+  fill: white;
+  stroke: black;
+  stroke-width: 1;
+}
+
+.bfm-node-connector {
+  fill: white;
+  stroke: black;
+  stroke-width: 1;
+}
+.bfm-node-connector:hover {
+  fill: #ddd;
+}
+
+.bfm-node-separator {
+  stroke: black;
+  stroke-width: 1;
+}
+
+.bfm-node-label {
+  cursor: default;
+}

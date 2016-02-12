@@ -1,12 +1,11 @@
-import { Button, ButtonToolbar, Panel } from 'react-bootstrap';
-import AceEditor from 'react-ace';
-import 'brace/mode/json';
-import 'brace/theme/github';
+import { Button } from 'react-bootstrap';
+import Immutable from 'immutable';
 
 import AsyncComponent from 'components/utils/AsyncComponent';
 import BotStatus from 'components/editor/BotStatus';
 import Drawer from 'components/editor/Drawer';
-import DemoBot from 'static/demo-bot.json';
+import BotCanvas from 'components/svg/BotCanvas';
+import Dump from 'components/Dump';
 
 import { delay } from 'utils/Promise';
 import api from 'utils/Api';
@@ -18,17 +17,14 @@ export class EditorView extends AsyncComponent {
 
   state = {
     bot: {},
-    code: JSON.stringify(DemoBot, null, 2),
-    deploy: {}
+    deploy: {},
+    data: null
   };
-
-  handleUpdateCode(code) {
-    this.setState({ code });
-  }
 
   handleDeployBot() {
     const { botId } = this.props.params;
-    const data = JSON.parse(this.state.code);
+    const data = this.state.data.toJS();
+
     this.handlePromise('deploy', api.bot.deploy(data, { botId })).then(() => (
       delay(1000)
     )).then(() => {
@@ -39,16 +35,39 @@ export class EditorView extends AsyncComponent {
     });
   }
 
+  handleNewNode(type) {
+    this.setState({
+      nodes: [...this.state.node, {
+        id: Math.floor(Math.random() * 1000).toString(16),
+        type
+      }]
+    });
+  }
+
+  handleDataUpdate(data) {
+    if (typeof data === 'function') {
+      this.setState(state => ({
+        ...state,
+        data: data(state.data)
+      }));
+    } else {
+      this.setState({ data });
+    }
+  }
+
   componentWillMount() {
     const { botId } = this.props.params;
-    this.handlePromise('bot', api.bot.fetch({ botId }));
+    this.handlePromise('bot', api.bot.fetch({ botId })).then(result => {
+      const data = Immutable.fromJS(JSON.parse(result.data.code));
+      this.setState({ data });
+    });
   }
 
   render() {
     const botStatus = this.getStatus('bot');
-    const deployStatus = this.getStatus('deploy');
+    const { data } = this.state;
 
-    if (!botStatus.result) {
+    if (!data || !botStatus.result) {
       return <div className="text-center">Loading...</div>;
     }
 
@@ -59,26 +78,18 @@ export class EditorView extends AsyncComponent {
         <Row>
           <Col xs={3}>
             <BotStatus botId={bot._id}/>
-            <Drawer/>
+            <Drawer onAddNode={::this.handleNewNode}/>
           </Col>
           <Col xs={9}>
-            <AceEditor mode="json" theme="github"
-              width="100%" height="100" tabSize={2}
-              minLines={1} maxLines={Infinity}
-              value={this.state.code}
-              onChange={::this.handleUpdateCode}
-              editorProps={{
-                $blockScrolling: true
-              }}
+            <BotCanvas width="100%" height="400"
+              className="bfm-canvas-border"
+              onUpdate={::this.handleDataUpdate}
+              data={data}
             />
-            <Button bsStyle="success" block
-              onClick={::this.handleDeployBot}
-              disabled={deployStatus.pending}
-            >
-              {deployStatus.result ? (
-                deployStatus.result.error ? `Failed: ${deployStatus.result.message}` : `Success`
-              ) : 'Deploy!'}
+            <Button onClick={::this.handleDeployBot} bsStyle="success" block>
+              Deploy
             </Button>
+            <Dump data={data.toJS()}/>
           </Col>
         </Row>
       </Grid>
