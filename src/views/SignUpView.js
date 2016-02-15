@@ -23,7 +23,7 @@ export class SignUpView extends AsyncComponent {
       if (result.error) {
         return;
       }
-      this.props.singUp(result.data);
+      this.props.signUp(result.data);
     });
   }
 
