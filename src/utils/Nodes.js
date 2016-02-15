@@ -37,5 +37,47 @@ export const NODE_TYPES = {
       stderr: FIRST_CONNECTOR_OFFSET + CONNECTOR_SPACING
     },
     outputOffsets: {}
+  },
+  'https-request@1.0.0': {
+    label: 'Https Request',
+    inputs: ['request'],
+    outputs: ['response'],
+    inputOffsets: {
+      request: FIRST_CONNECTOR_OFFSET
+    },
+    outputOffsets: {
+      response: FIRST_CONNECTOR_OFFSET
+    }
+  },
+  'http-server@1.0.0': {
+    label: 'Http Server',
+    inputs: [],
+    outputs: ['request'],
+    inputOffsets: {},
+    outputOffsets: {
+      request: FIRST_CONNECTOR_OFFSET
+    }
+  },
+  'javascript@1.0.0': {
+    label: 'Custom JS Node',
+    inputs: ['data'],
+    outputs: ['data'],
+    inputOffsets: {
+      data: FIRST_CONNECTOR_OFFSET
+    },
+    outputOffsets: {
+      data: FIRST_CONNECTOR_OFFSET
+    }
+  },
+  'simple-storage@1.0.0': {
+    label: 'Simple Storage',
+    inputs: ['control'],
+    outputs: ['value'],
+    inputOffsets: {
+      control: FIRST_CONNECTOR_OFFSET
+    },
+    outputOffsets: {
+      value: FIRST_CONNECTOR_OFFSET
+    }
   }
 };
