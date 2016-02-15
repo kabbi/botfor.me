@@ -53,6 +53,7 @@ export default {
   },
   bot: {
     create: sendData('/bot', 'POST'),
+    list: getJson('/bot'),
     fetch: getJson('/bot/:botId'),
     status: getJson('/bot/:botId/status'),
     deploy: sendData('/bot/:botId/deploy', 'POST'),

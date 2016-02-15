@@ -7,3 +7,7 @@ export const redirectSignIn = () => {
 export const redirectHome = () => {
   history.push('/');
 };
+
+export const redirectEditBot = botId => {
+  history.push(`/editor/${botId}`);
+};

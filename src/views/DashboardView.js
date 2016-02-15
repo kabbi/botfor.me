@@ -2,10 +2,15 @@ import LeftNav from 'components/dashboard/LeftNav';
 
 import BotCard from 'components/dashboard/BotCard';
 import NewBotModal from 'components/dashboard/NewBotModal';
+import AsyncComponent from 'components/utils/AsyncComponent';
 
-export class DashboardView extends React.Component {
+import api from 'utils/Api';
+import { redirectEditBot } from 'utils/Redirects';
+
+export class DashboardView extends AsyncComponent {
   state = {
-    showBotModal: false
+    showBotModal: false,
+    bots: {}
   };
 
   handleShowModal(state) {
@@ -14,7 +19,17 @@ export class DashboardView extends React.Component {
     });
   }
 
+  componentDidMount() {
+    this.handlePromise('bots', api.bot.list());
+  }
+
   render() {
+    const { result } = this.getStatus('bots');
+
+    if (!result) {
+      return <div className="text-center">Loading...</div>;
+    }
+
     return (
       <Grid fluid>
         <Row>
@@ -23,8 +38,16 @@ export class DashboardView extends React.Component {
           </Col>
           <Col xs={10}>
             <Row>
-              <BotCard/>
-              <BotCard template onCreate={this.handleShowModal.bind(this, true)}/>
+              <span>
+                {result.data.map(bot => (
+                  <BotCard key={bot._id} name={bot.name}
+                    onEdit={redirectEditBot.bind(null, bot._id)}
+                  />
+                ))}
+              </span>
+              <BotCard name="Empty Template" template
+                onCreate={this.handleShowModal.bind(this, true)}
+              />
             </Row>
           </Col>
         </Row>
