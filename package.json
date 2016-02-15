@@ -9,7 +9,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "node -r dotenv/config --harmony bin/compile",
+    "compile": "node -r dotenv/config --harmony_destructuring --harmony_default_parameters --es_staging bin/compile",
     "lint": "eslint . ./",
     "lint:fix": "npm run lint -- --fix",
     "start": "npm run dev",
@@ -48,6 +48,7 @@
     "koa-router": "^5.3.0",
     "koa-static": "^1.5.2",
     "mongorito": "^1.4.6",
+    "node-uuid": "^1.4.7",
     "react": "^0.14.0",
     "react-bootstrap": "^0.28.2",
     "react-dom": "^0.14.0",
