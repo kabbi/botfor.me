@@ -28,4 +28,17 @@ module.exports = class Bot extends ValidatedModel {
       ]
     };
   }
+
+  configure() {
+    super.configure();
+    this.before('create', 'addEmptyCode');
+  }
+
+  * addEmptyCode(next) {
+    this.set('code', JSON.stringify({
+      nodes: [],
+      links: []
+    }));
+    yield next;
+  }
 };
