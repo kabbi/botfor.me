@@ -1,39 +1,29 @@
 import { connect } from 'react-redux';
 
-import {
-  redirectSignIn, redirectHome
-} from 'utils/Redirects';
+import { redirectSignIn } from 'utils/Redirects';
 
 const mapStateToProps = (state) => ({
-  authorized: !!state.auth.token,
-  user: state.auth.user
+  authorized: !!state.auth.token
 });
 
 export class AuthView extends React.Component {
   static propTypes = {
-    user: React.PropTypes.object,
     authorized: React.PropTypes.bool,
     children: React.PropTypes.node
   };
 
   handleAuthChanges(authorized) {
-    // TODO: this gets called every time, so
-    // we enter endless loop and ddos chrome
-    // TODO: investigate!
-
-    // if (!authorized) {
-    //   redirectSignIn();
-    // } else {
-    //   redirectHome();
-    // }
+    if (!this.props.authorized) {
+      redirectSignIn();
+    }
   }
 
   componentDidMount() {
-    this.handleAuthChanges(this.props.authorized);
+    this.handleAuthChanges();
   }
 
   componentDidUpdate() {
-    this.handleAuthChanges(this.props.authorized);
+    this.handleAuthChanges();
   }
 
   render() {
