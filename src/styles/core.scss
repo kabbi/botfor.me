@@ -35,3 +35,13 @@ body {
 .bfm-canvas-border {
   border: 1px dotted black;
 }
+
+.bfm-visible {
+  opacity: 1.0;
+  transition: opacity 0.1s linear;
+}
+
+.bfm-invisible {
+  opacity: 0.0;
+  transition: opacity 0.1s linear;
+}

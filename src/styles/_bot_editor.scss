@@ -1,3 +1,17 @@
+.bfm-toolbar-container {
+  position: relative;
+}
+
+.bfm-right-toolbar {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+}
+.bfm-right-toolbar:after {
+  content: "";
+  clear: both;
+}
+
 .bfm-node-outline {
   fill: white;
   stroke: black;

@@ -2,7 +2,7 @@ const jwt = require('koa-jwt');
 const User = require('../users/User.model');
 const config = require('../../../config');
 
-exports.signin = function *(next) {
+exports.signin = function *() {
   const { email, password } = this.request.body;
   const user = yield User.where('email', email).findOne();
 
@@ -18,7 +18,7 @@ exports.signin = function *(next) {
   };
 };
 
-exports.signup = function *(next) {
+exports.signup = function *() {
   const { body } = this.request;
 
   // TODO: is there a better way?

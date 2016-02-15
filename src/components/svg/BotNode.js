@@ -1,24 +1,23 @@
 import {
+  NODE_TYPES,
   DEFAULT_WIDTH,
-  DEFAULT_HEIGHT,
-  EXPANDED_HEIGHT,
-  getLinkOffset,
-  nodes
+  MINIMAL_HEIGHT,
+  CONNECTOR_LABEL_OFFSET
 } from 'utils/Nodes';
 
 export default class BotNode extends React.Component {
   static draggable = true;
 
   static propTypes = {
+    id: React.PropTypes.string,
     type: React.PropTypes.string,
     expanded: React.PropTypes.bool,
-    onUpdateWidth: React.PropTypes.func,
+    width: React.PropTypes.number,
+    height: React.PropTypes.number,
     onToggleExpand: React.PropTypes.func,
-    onStartConnecting: React.PropTypes.func
-  };
-
-  state = {
-    width: DEFAULT_WIDTH
+    onUpdateDimensions: React.PropTypes.func,
+    onStartConnecting: React.PropTypes.func,
+    onFinishConnecting: React.PropTypes.func
   };
 
   handleToggleExpand(event) {
@@ -26,9 +25,18 @@ export default class BotNode extends React.Component {
     this.props.onToggleExpand();
   }
 
-  handleStartConnecting(event) {
-    this.handleCancelEvent();
-    this.props.onStartConnecting();
+  handleStartConnecting(id, event) {
+    this.handleCancelEvent(event);
+    this.props.onStartConnecting([
+      this.props.id, id
+    ]);
+  }
+
+  handleFinishConnecting(id, event) {
+    this.handleCancelEvent(event);
+    this.props.onFinishConnecting([
+      this.props.id, id
+    ]);
   }
 
   handleCancelEvent(event) {
@@ -37,16 +45,16 @@ export default class BotNode extends React.Component {
   }
 
   componentDidMount() {
+    const { inputOffsets, outputOffsets } = NODE_TYPES[this.props.type];
     const width = Math.max(DEFAULT_WIDTH, this.refs.label.getBBox().width + 30);
-    this.props.onUpdateWidth(width);
-    this.setState({ width });
+
+    this.props.onUpdateDimensions({ width, inputOffsets, outputOffsets });
   }
 
   render() {
-    const { type, expanded } = this.props;
-    const { width } = this.state;
-    const nodeInfo = nodes[type];
-    const height = expanded ? EXPANDED_HEIGHT : DEFAULT_HEIGHT;
+    const { type, expanded, width, height: expandedHeight } = this.props;
+    const { inputs, outputs, inputOffsets, outputOffsets } = NODE_TYPES[type];
+    const height = expanded ? expandedHeight : MINIMAL_HEIGHT;
     return (
       <g {...this.props} className="bfm-node-node">
         <rect width={width} height={height} rx={5} className="bfm-node-outline"/>
@@ -64,33 +72,32 @@ export default class BotNode extends React.Component {
         {expanded && (
           <g transform="translate(0 20)">
             <line x1={0} y1={0} x2={width} y2={0} className="bfm-node-separator"/>
-            {nodeInfo.inputs.map((key, index) => (
-              <g>
-                <circle key={key}
+            {inputs.map(id => (
+              <g key={id}>
+                <circle
                   cx={0} r={4} className="bfm-node-connector"
-                  cy={getLinkOffset(index, nodeInfo.inputs.length)}
-                  onMouseDown={::this.handleCancelEvent}
+                  cy={inputOffsets[id]}
+                  onMouseUp={this.handleFinishConnecting.bind(this, id)}
                 />
-                <text x={5} y={getLinkOffset(index, nodeInfo.inputs.length) + 3}
+                <text x={5} y={inputOffsets[id] + CONNECTOR_LABEL_OFFSET}
                   textAnchor="start"
                   fontSize={10}
                 >
-                  {key}
+                  {id}
                 </text>
               </g>
             ))}
-            {nodeInfo.outputs.map((key, index) => (
-              <g>
-                <circle key={key}
-                  cx={width} r={4} className="bfm-node-connector"
-                  cy={getLinkOffset(index, nodeInfo.outputs.length)}
-                  onMouseDown={this.handleStartConnecting.bind(this, key, 'output')}
+            {outputs.map(id => (
+              <g key={id}>
+                <circle
+                  cx={width} cy={outputOffsets[id]} r={4} className="bfm-node-connector"
+                  onMouseDown={this.handleStartConnecting.bind(this, id)}
                 />
-                <text x={width - 5} y={getLinkOffset(index, nodeInfo.outputs.length) + 3}
+                <text x={width - 5} y={outputOffsets[id] + CONNECTOR_LABEL_OFFSET}
                   textAnchor="end"
                   fontSize={10}
                 >
-                  {key}
+                  {id}
                 </text>
               </g>
             ))}

@@ -1,23 +1,41 @@
 export const EXPANDED_HEIGHT = 60;
-export const DEFAULT_HEIGHT = 20;
+export const MINIMAL_HEIGHT = 20;
 export const DEFAULT_WIDTH = 100;
 
-export const nodes = {
+export const FIRST_CONNECTOR_OFFSET = 10;
+export const CONNECTOR_SPACING = 20;
+
+export const CONNECTOR_LABEL_OFFSET = 3;
+
+export const NODE_TYPES = {
   'timer@1.0.0': {
+    label: 'Timer',
     inputs: [],
-    outputs: ['data']
+    outputs: ['data'],
+    inputOffsets: {},
+    outputOffsets: {
+      data: FIRST_CONNECTOR_OFFSET
+    }
   },
   'json-stringify@1.0.0': {
+    label: 'JSON stringify',
     inputs: ['objects'],
-    outputs: ['data']
+    outputs: ['data'],
+    inputOffsets: {
+      objects: FIRST_CONNECTOR_OFFSET
+    },
+    outputOffsets: {
+      data: FIRST_CONNECTOR_OFFSET
+    }
   },
   'stdio@1.0.0': {
+    label: 'Std I/O',
     inputs: ['stdout', 'stderr'],
-    outputs: []
+    outputs: [],
+    inputOffsets: {
+      stdout: FIRST_CONNECTOR_OFFSET,
+      stderr: FIRST_CONNECTOR_OFFSET + CONNECTOR_SPACING
+    },
+    outputOffsets: {}
   }
-};
-
-export const getLinkOffset = (index, count) => {
-  const step = (EXPANDED_HEIGHT - DEFAULT_HEIGHT) / count;
-  return index * step + step / 2;
 };

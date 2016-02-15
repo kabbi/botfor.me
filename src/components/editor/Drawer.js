@@ -1,8 +1,8 @@
 import { ButtonGroup, Button, Panel, Glyphicon } from 'react-bootstrap';
 
-import NodesList from './NodesList';
+import NodeList from './NodeList';
 
-const Drawer = () => (
+const NodeDrawer = ({ onAddNode }) => (
   <Panel>
     <p className="lead drawer-title">Nodes</p>
     <ButtonGroup>
@@ -16,8 +16,12 @@ const Drawer = () => (
         <Glyphicon glyph="folder-open"/>
       </Button>
     </ButtonGroup>
-    <NodesList/>
+    <NodeList onAddNode={onAddNode}/>
   </Panel>
 );
 
-export default Drawer;
+NodeDrawer.propTypes = {
+  onAddNode: React.PropTypes.func
+};
+
+export default NodeDrawer;
