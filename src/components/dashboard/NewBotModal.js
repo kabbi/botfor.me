@@ -49,25 +49,34 @@ export class NewBotModal extends AsyncComponent {
           <Form ref="form"
             onSubmit={::this.handleSubmit}
             onChange={this.resetStatus.bind(this, 'bot')}
-            controlProps={{errors: (result && result.error && result.data) || {}}}
+            controlProps={{ errors: (result && result.error && result.data) || {} }}
           >
             <ValidatedInput model="name"
               label="Name your bot"
               type="text"
               placeholder="For example: Weather Bot"
-              help="Just a general and unique name, to be able to find it among others"
+              help={
+                'Just a general and unique name, to be able to find it among ' +
+                'others'
+              }
             />
             <ValidatedInput model="tags"
               label="Tags"
               type="text"
               placeholder="weather, predictions, magic"
-              help="You can use tags later to organize your bots, or to search public ones"
+              help={
+                'You can use tags later to organize your bots, or to ' +
+                'search public ones'
+              }
             />
             <ValidatedInput model="public"
               label="Make this bot public"
               type="checkbox"
               placeholder="weather, predictions, magic"
-              help="We will only share the bot structure, your private data will not be visible to anyone"
+              help={
+                'We will only share the bot structure, your private data will ' +
+                'not be visible to anyone'
+              }
             />
           </Form>
         </Modal.Body>
@@ -88,6 +97,6 @@ export class NewBotModal extends AsyncComponent {
       </Modal>
     );
   }
-};
+}
 
 export default connect()(NewBotModal);

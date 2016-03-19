@@ -18,7 +18,11 @@ export default class ValidatedControl extends React.Component {
     validators: {}
   };
 
-  runValidators(state = {...this.props.state}) {
+  componentDidMount() {
+    this.props.onChange(this.runValidators());
+  }
+
+  runValidators(state = { ...this.props.state }) {
     for (const key of Object.keys(this.props.validators)) {
       const validation = this.props.validators[key](state.value);
       state.error = state.error || validation.error;
@@ -36,9 +40,6 @@ export default class ValidatedControl extends React.Component {
     this.props.onChange(newState);
   }
 
-  componentDidMount() {
-    this.props.onChange(this.runValidators());
-  }
 
   render() {
     return React.cloneElement(this.props.children, {

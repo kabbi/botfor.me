@@ -9,7 +9,7 @@ module.exports = class ValidatedModel extends Model {
     this.before('save', 'validateSchema');
   }
 
-  * validateSchema(next) {
+  *validateSchema(next) {
     const result = tv4.validateMultiple(this.attributes, this.getSchema());
     if (!result.valid) {
       const fields = {};

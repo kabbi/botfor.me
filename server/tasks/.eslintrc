@@ -1,0 +1,6 @@
+{
+  "rules": {
+    // These are quite useful in sagas
+    "no-constant-condition": 0
+  }
+}

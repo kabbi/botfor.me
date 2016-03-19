@@ -1,3 +1,5 @@
+/* eslint-disable react/no-multi-comp */
+
 import { Well } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import d3 from 'd3';
@@ -11,9 +13,9 @@ DraggableRect.propTypes = {
 };
 DraggableRect.draggable = true;
 
-const Connection = ({ data }) => {
-  return <path d={data} stroke="black" fill="none"/>;
-};
+const Connection = ({ data }) => (
+  <path d={data} stroke="black" fill="none"/>
+);
 Connection.propTypes = {
   data: React.PropTypes.string
 };
@@ -31,6 +33,19 @@ class SvgCanvas extends React.Component {
 
   componentWillMount() {
     this.lineGenerator = d3.svg.line().interpolate('basis');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { children } = this.state;
+    React.Children.forEach(nextProps.children, ({ props: { id, x, y } }) => {
+      children[id] = children[id] || {
+        x: x || 0,
+        y: y || 0
+      };
+    });
+    this.setState({
+      children
+    });
   }
 
   getInitialChildrenState() {
@@ -97,19 +112,6 @@ class SvgCanvas extends React.Component {
     });
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { children } = this.state;
-    React.Children.forEach(nextProps.children, ({ props: { id, x, y } }) => {
-      children[id] = children[id] || {
-        x: x || 0,
-        y: y || 0
-      };
-    });
-    this.setState({
-      children
-    });
-  }
-
   render() {
     const { children, ...rest } = this.props;
     return (
@@ -151,9 +153,9 @@ class SvgCanvas extends React.Component {
       </svg>
     );
   }
-};
+}
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = () => ({});
 export default class SvgDevcard extends React.Component {
   static dcHeader = 'Svg Experiments';
 
@@ -175,7 +177,7 @@ export default class SvgDevcard extends React.Component {
     connectFrom: null
   };
 
-  handleAdd(event) {
+  handleAdd() {
     this.setState({
       nodes: [...this.state.nodes, {
         id: Math.random().toString()
@@ -243,6 +245,6 @@ export default class SvgDevcard extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default connect(mapStateToProps, null)(SvgDevcard);

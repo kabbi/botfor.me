@@ -7,7 +7,7 @@ const config = require('../../config');
 
 const API_URL = '/api';
 
-module.exports = function(app) {
+module.exports = (app) => {
   // Public middleware and routes
   app.use(cors());
   app.use(require('./utils/errors').handleApiErrors);

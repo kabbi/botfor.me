@@ -1,6 +1,8 @@
-import { argv } from 'yargs';
-import config from '../config';
-import webpackConfig from './webpack.config';
+'use strict';
+
+const { argv } = require('yargs');
+const config = require('../config');
+const webpackConfig = require('./webpack.config');
 
 const debug = require('debug')('app:karma');
 debug('Create configuration.');
@@ -51,4 +53,4 @@ if (config.coverage_enabled) {
   }];
 }
 
-export default (cfg) => cfg.set(karmaConfig);
+module.exports = (cfg) => cfg.set(karmaConfig);

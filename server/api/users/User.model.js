@@ -50,7 +50,7 @@ module.exports = class User extends ValidatedModel {
     this.before('create', 'addPassword');
   }
 
-  * checkIfExists(next) {
+  *checkIfExists(next) {
     const user = yield User.where('email', this.get('email')).findOne();
     if (user) {
       throw createError(400, 'The user with this email already exists');
@@ -58,12 +58,12 @@ module.exports = class User extends ValidatedModel {
     yield next;
   }
 
-  * generateSalt(next) {
+  *generateSalt(next) {
     this.set('salt', crypto.randomBytes(SALT_LENGTH).toString('base64'));
     yield next;
   }
 
-  * addPassword(next) {
+  *addPassword(next) {
     this.set('password', this.hashPassword(this.get('password')));
     yield next;
   }
@@ -71,10 +71,11 @@ module.exports = class User extends ValidatedModel {
   hashPassword(password) {
     const salt = this.get('salt');
     if (salt && password) {
-      return crypto.pbkdf2Sync(password, salt, PASSWORD_HASH_ITERATIONS, PASSWORD_HASH_LENGTH).toString('base64');
-    } else {
-      return password;
+      return crypto.pbkdf2Sync(
+        password, salt, PASSWORD_HASH_ITERATIONS, PASSWORD_HASH_LENGTH
+      ).toString('base64');
     }
+    return password;
   }
 
   authenticate(password) {

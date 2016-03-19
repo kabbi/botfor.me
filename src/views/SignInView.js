@@ -8,7 +8,7 @@ import AsyncComponent from 'components/utils/AsyncComponent';
 import { actions } from 'redux/modules/auth';
 import api from 'utils/Api';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = () => ({});
 export class SignInView extends AsyncComponent {
   static propTypes = {
     signIn: React.PropTypes.func.isRequired

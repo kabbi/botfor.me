@@ -12,18 +12,18 @@ export class AuthView extends React.Component {
     children: React.PropTypes.node
   };
 
-  handleAuthChanges(authorized) {
-    if (!this.props.authorized) {
-      redirectSignIn();
-    }
-  }
-
   componentDidMount() {
     this.handleAuthChanges();
   }
 
   componentDidUpdate() {
     this.handleAuthChanges();
+  }
+
+  handleAuthChanges() {
+    if (!this.props.authorized) {
+      redirectSignIn();
+    }
   }
 
   render() {

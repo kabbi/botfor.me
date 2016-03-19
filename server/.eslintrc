@@ -1,0 +1,16 @@
+{
+  "parserOptions": {
+    // Disable modules for pure node env
+    "sourceType": "script"
+  },
+  "rules": {
+    // To use block-scoping in pure node env
+    "strict": [2, "global"],
+    // That's pretty much useful for now
+    "no-console": 0,
+    // Generators are good, on server side
+    "babel/generator-star-spacing": 1,
+    // Just do that yourself, for now
+    "camelcase": 0
+  }
+}

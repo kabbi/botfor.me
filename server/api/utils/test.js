@@ -1,3 +1,5 @@
+'use strict';
+
 const NomadClient = require('./NomadClient');
 
 NomadClient.job.lastAllocation({ jobId: 'flow:demo-flow' }).then(allocation => {

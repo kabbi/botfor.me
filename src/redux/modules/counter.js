@@ -8,12 +8,10 @@ export const constants = {
 
 export const increment = createAction(COUNTER_INCREMENT, (value = 1) => value);
 
-export const doubleAsync = () => {
-  return (dispatch, getState) => {
-    setTimeout(() => {
-      dispatch(increment(getState().counter));
-    }, 1000);
-  };
+export const doubleAsync = () => (dispatch, getState) => {
+  setTimeout(() => {
+    dispatch(increment(getState().counter));
+  }, 1000);
 };
 
 export const actions = {

@@ -1,6 +1,6 @@
 import { Button } from 'react-bootstrap';
 
-const BotCard = ({ name, template, onCreate, onStart, onEdit }) => (
+const BotCard = ({ name, template, onCreate, onEdit }) => (
   <Col md={4}>
     <div className="thumbnail">
       <h4 className="text-center">
@@ -28,7 +28,8 @@ const BotCard = ({ name, template, onCreate, onStart, onEdit }) => (
 BotCard.propTypes = {
   name: React.PropTypes.string,
   template: React.PropTypes.bool,
-  onCreate: React.PropTypes.func
+  onCreate: React.PropTypes.func,
+  onEdit: React.PropTypes.func
 };
 
 export default BotCard;

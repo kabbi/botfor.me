@@ -5,7 +5,7 @@ const config = require('../../config');
 const paths = config.utils_paths;
 const debug = require('debug')('app:server:webpack-dev');
 
-module.exports = function(compiler, publicPath) {
+module.exports = (compiler, publicPath) => {
   debug('Enable webpack dev middleware.');
 
   return require('koa-webpack-dev-middleware')(compiler, {

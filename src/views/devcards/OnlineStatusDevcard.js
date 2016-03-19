@@ -35,14 +35,14 @@ export default class OnlineStatusDevcard extends React.Component {
     this.listenMessages(this.props.socket);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.listenMessages(nextProps.socket);
+  }
+
   componentWillUnmount() {
     this.props.disconnect();
     this.subscr.destroy();
     this.subscr = null;
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.listenMessages(nextProps.socket);
   }
 
   listenMessages(socket) {
@@ -74,6 +74,6 @@ export default class OnlineStatusDevcard extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default connect(mapStateToProps, remoteActions)(OnlineStatusDevcard);

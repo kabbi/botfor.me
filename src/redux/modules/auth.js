@@ -45,15 +45,17 @@ export const actions = {
   signOut
 };
 
-export default handleActions({
-  [AUTH_SIGNIN]: (state, { payload }) => payload,
-  [AUTH_SIGNUP]: (state, { payload }) => payload,
-  [AUTH_SIGNOUT]: (state, { payload }) => ({
-    token: null,
-    user: null
-  })
-}, {
+const initialState = {
   token: null,
   user: null,
   ...loadAuth()
-});
+};
+
+export default handleActions({
+  [AUTH_SIGNIN]: (state, { payload }) => payload,
+  [AUTH_SIGNUP]: (state, { payload }) => payload,
+  [AUTH_SIGNOUT]: () => ({
+    token: null,
+    user: null
+  })
+}, initialState);

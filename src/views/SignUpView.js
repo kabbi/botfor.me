@@ -8,7 +8,7 @@ import AsyncComponent from 'components/utils/AsyncComponent';
 import { actions } from 'redux/modules/auth';
 import api from 'utils/Api';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = () => ({});
 export class SignUpView extends AsyncComponent {
   static propTypes = {
     signUp: React.PropTypes.func.isRequired
@@ -43,10 +43,22 @@ export class SignUpView extends AsyncComponent {
                 Just type some info here
               </h2>
 
-              <ValidatedInput model="name" type="text" placeholder="Your name"/>
-              <ValidatedInput model="email" type="text" placeholder="E-mail"/>
-              <ValidatedInput model="password" type="password" placeholder="Password"/>
-              <ValidatedInput model="confirmPassword" type="password" placeholder="Repeat password"/>
+              <ValidatedInput type="text"
+                model="name"
+                placeholder="Your name"
+              />
+              <ValidatedInput type="text"
+                model="email"
+                placeholder="E-mail"
+              />
+              <ValidatedInput type="password"
+                model="password"
+                placeholder="Password"
+              />
+              <ValidatedInput type="password"
+                model="confirmPassword"
+                placeholder="Repeat password"
+              />
 
               <ButtonInput className="btn-block"
                 disabled={pending}

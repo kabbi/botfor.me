@@ -1,7 +1,7 @@
 'use strict';
 
 const request = require('request');
-const { nomad_host } = require('../../../config');
+const { nomad_host } = require('../../config');
 
 const interpolate = (string, params) => {
   const result = [];
@@ -21,14 +21,17 @@ const interpolate = (string, params) => {
 
 const fetch = (url, options) => new Promise((resolve, reject) => {
   request(url, Object.assign({
-    json: true
+    json: true,
+    timeout: 1000
   }, options), (error, response, body) => {
     if (error) {
-      return reject(error);
+      reject(error);
+      return;
     }
     if (response.statusCode !== 200) {
       // TODO: pass response and statuscode somehow
-      return reject({ error, response, body });
+      reject({ error, response, body });
+      return;
     }
     resolve(body);
   });
@@ -54,5 +57,8 @@ module.exports = {
         allocations.sort((a, b) => b.CreateIndex - a.CreateIndex)[0]
       ));
     }
+  },
+  agent: {
+    self: getJson('/v1/agent/self')
   }
 };

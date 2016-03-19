@@ -1,3 +1,5 @@
+'use strict';
+
 const controller = require('./Bot.controller.js');
 const router = require('koa-router')();
 const body = require('koa-body')();

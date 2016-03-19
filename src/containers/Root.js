@@ -29,6 +29,7 @@ export default class Root extends React.Component {
         return <DevTools/>;
       }
     }
+    return null;
   }
 
   render() {

@@ -14,11 +14,19 @@ export default class BotNode extends React.Component {
     expanded: React.PropTypes.bool,
     width: React.PropTypes.number,
     height: React.PropTypes.number,
+    selected: React.PropTypes.bool,
     onToggleExpand: React.PropTypes.func,
     onUpdateDimensions: React.PropTypes.func,
     onStartConnecting: React.PropTypes.func,
     onFinishConnecting: React.PropTypes.func
   };
+
+  componentDidMount() {
+    const { inputOffsets, outputOffsets, expandedHeight: height } = NODE_TYPES[this.props.type];
+    const width = Math.max(DEFAULT_WIDTH, this.refs.label.getBBox().width + 30);
+
+    this.props.onUpdateDimensions({ width, height, inputOffsets, outputOffsets });
+  }
 
   handleToggleExpand(event) {
     event.stopPropagation();
@@ -32,8 +40,8 @@ export default class BotNode extends React.Component {
     ]);
   }
 
-  handleFinishConnecting(id, event) {
-    this.handleCancelEvent(event);
+  handleFinishConnecting(id) {
+    // this.handleCancelEvent(event);
     this.props.onFinishConnecting([
       this.props.id, id
     ]);
@@ -42,13 +50,6 @@ export default class BotNode extends React.Component {
   handleCancelEvent(event) {
     event.stopPropagation();
     event.preventDefault();
-  }
-
-  componentDidMount() {
-    const { inputOffsets, outputOffsets } = NODE_TYPES[this.props.type];
-    const width = Math.max(DEFAULT_WIDTH, this.refs.label.getBBox().width + 30);
-
-    this.props.onUpdateDimensions({ width, inputOffsets, outputOffsets });
   }
 
   render() {
@@ -106,4 +107,4 @@ export default class BotNode extends React.Component {
       </g>
     );
   }
-};
+}

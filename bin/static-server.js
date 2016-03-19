@@ -7,4 +7,4 @@ const debug = require('debug')('app:bin:static-server');
 const port = config.static_server_port;
 
 server.listen(port);
-debug('Server is now running at localhost:' + port + '.');
+debug(`Server is now running at localhost:${port}.`);

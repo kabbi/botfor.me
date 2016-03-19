@@ -23,7 +23,10 @@ const config = {
 
   consul_params : {
     host: '192.168.140.42',
-    promisify: true
+    promisify: true,
+    defaults: {
+      timeout: 1000
+    }
   },
 
   nomad_host : 'http://192.168.140.42:4646',
@@ -44,12 +47,12 @@ const config = {
   compiler_css_modules     : false,
   compiler_enable_hmr      : false,
   compiler_globals         : {
-    'React' : 'react',
-    'ReactDOM' : 'react-dom',
+    React : 'react',
+    ReactDOM : 'react-dom',
     // react-bootstrap
-    'Grid': 'react-bootstrap/lib/Grid',
-    'Row': 'react-bootstrap/lib/Row',
-    'Col': 'react-bootstrap/lib/Col'
+    Grid: 'react-bootstrap/lib/Grid',
+    Row: 'react-bootstrap/lib/Row',
+    Col: 'react-bootstrap/lib/Col'
   },
   compiler_source_maps     : true,
   compiler_hash_type       : 'hash',
@@ -95,16 +98,16 @@ Edit at Your Own Risk
 // ------------------------------------
 config.globals = {
   'process.env'  : {
-    'NODE_ENV' : JSON.stringify(config.env)
+    NODE_ENV : JSON.stringify(config.env)
   },
-  'NODE_ENV'     : config.env,
-  '__API_HOST__' : `'http://${config.server_host}:${config.app_server_port}'`,
-  '__DEV__'      : config.env === 'development',
-  '__PROD__'     : config.env === 'production',
-  '__DEBUG__'    : config.env === 'development' && !argv.no_debug,
-  '__DEBUG_NEW_WINDOW__' : !!argv.nw,
-  '__BASENAME__' : JSON.stringify(process.env.BASENAME || '/'),
-  '__MAINTAINING_MODE__': process.env.MAINTAINING_MODE
+  NODE_ENV     : config.env,
+  __API_HOST__ : `'http://${config.server_host}:${config.app_server_port}'`,
+  __DEV__      : config.env === 'development',
+  __PROD__     : config.env === 'production',
+  __DEBUG__    : config.env === 'development' && !argv.no_debug,
+  __DEBUG_NEW_WINDOW__ : !!argv.nw,
+  __BASENAME__ : JSON.stringify(process.env.BASENAME || '/'),
+  __MAINTAINING_MODE__ : process.env.MAINTAINING_MODE
 };
 
 // ------------------------------------
@@ -119,8 +122,9 @@ config.compiler_vendor = config.compiler_vendor
     debug(
       `Package "${dep}" was not found as an npm dependency in package.json; ` +
       `it won't be included in the webpack vendor bundle.\n` +
-      `Consider removing it from vendor_dependencies in ~/config/index.js`
+      'Consider removing it from vendor_dependencies in ~/config/index.js'
     );
+    return false;
   });
 
 // ------------------------------------
@@ -133,9 +137,9 @@ config.utils_paths = (() => {
     resolve.apply(resolve, [config.path_base, ...args]);
 
   return {
-    base   : base,
     client : base.bind(null, config.dir_client),
-    dist   : base.bind(null, config.dir_dist)
+    dist   : base.bind(null, config.dir_dist),
+    base
   };
 })();
 

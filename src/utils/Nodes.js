@@ -15,7 +15,8 @@ export const NODE_TYPES = {
     inputOffsets: {},
     outputOffsets: {
       data: FIRST_CONNECTOR_OFFSET
-    }
+    },
+    expandedHeight: MINIMAL_HEIGHT + CONNECTOR_SPACING
   },
   'json-stringify@1.0.0': {
     label: 'JSON stringify',
@@ -26,7 +27,8 @@ export const NODE_TYPES = {
     },
     outputOffsets: {
       data: FIRST_CONNECTOR_OFFSET
-    }
+    },
+    expandedHeight: MINIMAL_HEIGHT + CONNECTOR_SPACING
   },
   'stdio@1.0.0': {
     label: 'Std I/O',
@@ -36,7 +38,8 @@ export const NODE_TYPES = {
       stdout: FIRST_CONNECTOR_OFFSET,
       stderr: FIRST_CONNECTOR_OFFSET + CONNECTOR_SPACING
     },
-    outputOffsets: {}
+    outputOffsets: {},
+    expandedHeight: MINIMAL_HEIGHT + 2 * CONNECTOR_SPACING
   },
   'https-request@1.0.0': {
     label: 'Https Request',
@@ -47,7 +50,8 @@ export const NODE_TYPES = {
     },
     outputOffsets: {
       response: FIRST_CONNECTOR_OFFSET
-    }
+    },
+    expandedHeight: MINIMAL_HEIGHT + CONNECTOR_SPACING
   },
   'http-server@1.0.0': {
     label: 'Http Server',
@@ -56,7 +60,8 @@ export const NODE_TYPES = {
     inputOffsets: {},
     outputOffsets: {
       request: FIRST_CONNECTOR_OFFSET
-    }
+    },
+    expandedHeight: MINIMAL_HEIGHT + CONNECTOR_SPACING
   },
   'javascript@1.0.0': {
     label: 'Custom JS Node',
@@ -67,7 +72,8 @@ export const NODE_TYPES = {
     },
     outputOffsets: {
       data: FIRST_CONNECTOR_OFFSET
-    }
+    },
+    expandedHeight: MINIMAL_HEIGHT + CONNECTOR_SPACING
   },
   'simple-storage@1.0.0': {
     label: 'Simple Storage',
@@ -78,6 +84,7 @@ export const NODE_TYPES = {
     },
     outputOffsets: {
       value: FIRST_CONNECTOR_OFFSET
-    }
+    },
+    expandedHeight: MINIMAL_HEIGHT + CONNECTOR_SPACING
   }
 };

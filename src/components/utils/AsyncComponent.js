@@ -1,4 +1,8 @@
 export default class AsyncComponent extends React.Component {
+  componentWillUnmount() {
+    this.unmounted = true;
+  }
+
   getStatus(path) {
     return this.state[path];
   }
@@ -38,8 +42,4 @@ export default class AsyncComponent extends React.Component {
       return error;
     });
   }
-
-  componentWillUnmount() {
-    this.unmounted = true;
-  }
-};
+}

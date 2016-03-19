@@ -6,6 +6,13 @@ import BotNode from 'components/svg/BotNode';
 import { MINIMAL_HEIGHT } from 'utils/Nodes';
 import { randomConnectionId } from 'utils/Random';
 
+export const MAX_SIZE = {
+  width: 1000,
+  height: 1000
+};
+
+export const GRID_STEP = 10;
+
 export default class BotCanvas extends React.Component {
   static propTypes = {
     data: React.PropTypes.object.isRequired,
@@ -72,9 +79,9 @@ export default class BotCanvas extends React.Component {
 
     if (dragging) {
       event.preventDefault();
-      this.props.onUpdate(data.withMutations(data => {
-        data.setIn(['nodes', index, 'disp', 'x'], x - relativeX);
-        data.setIn(['nodes', index, 'disp', 'y'], y - relativeY);
+      this.props.onUpdate(data.withMutations(upd => {
+        upd.setIn(['nodes', index, 'disp', 'x'], x - relativeX);
+        upd.setIn(['nodes', index, 'disp', 'y'], y - relativeY);
       }));
     }
   }
@@ -131,13 +138,30 @@ export default class BotCanvas extends React.Component {
     const { data, ...rest } = this.props;
     const nodeMap = data.get('nodes').reduce((result, node) => (
       result.set(node.get('id'), node)
-    ), Immutable.Map());
+    ), new Immutable.Map());
+
+    const canvasSize = this.refs.canvas ? this.refs.canvas.getBoundingClientRect() : MAX_SIZE;
+
     return (
       <svg {...rest}
         ref="canvas"
         onMouseMove={::this.handleMouseMove}
         onMouseUp={::this.handleMouseUp}
       >
+        {new Immutable.Range(0, canvasSize.width, GRID_STEP).map(x => (
+          <line key={x}
+            x1={x} y1={0}
+            x2={x} y2={canvasSize.height}
+            className="bfm-canvas-gridline"
+          />
+        ))}
+        {new Immutable.Range(0, canvasSize.height, GRID_STEP).map(y => (
+          <line key={y}
+            x1={0} y1={y}
+            x2={canvasSize.width} y2={y}
+            className="bfm-canvas-gridline"
+          />
+        ))}
         {data.get('links').map(link => {
           const fromNode = nodeMap.get(link.getIn(['from', 0]));
           const toNode = nodeMap.get(link.getIn(['to', 0]));
@@ -165,4 +189,4 @@ export default class BotCanvas extends React.Component {
       </svg>
     );
   }
-};
+}

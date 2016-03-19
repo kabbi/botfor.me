@@ -1,6 +1,8 @@
+'use strict';
+
 const debug = require('debug')('app:app-server:api:utils:errors');
 
-exports.handleApiErrors = function *(next) {
+exports.handleApiErrors = function *handleApiErrors(next) {
   try {
     yield next;
     if (this.body && !this.state.skipErrorPopulation) {

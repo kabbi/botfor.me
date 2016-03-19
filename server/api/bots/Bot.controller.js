@@ -1,13 +1,10 @@
 'use strict';
 
 const Bot = require('./Bot.model');
-const NomadClient = require('../utils/NomadClient');
+const NomadClient = require('../../clients/NomadClient');
 const { ApiError } = require('../utils/errors');
-const config = require('../../../config');
 
-const consul = require('consul')(config.consul_params);
-
-exports.botById = function *(id, next) {
+exports.botById = function *botById(id, next) {
   this.state.bot = yield Bot.findById(id);
   if (!this.state.bot) {
     throw new ApiError('Bot not found', { id }, 404);
@@ -15,20 +12,20 @@ exports.botById = function *(id, next) {
   yield next;
 };
 
-exports.index = function *() {
+exports.index = function *index() {
   this.body = yield Bot.all();
 };
 
-exports.fetch = function *() {
+exports.fetch = function *fetch() {
   this.body = this.state.bot;
 };
 
-exports.create = function *() {
+exports.create = function *create() {
   const bot = new Bot(this.request.body);
   this.body = yield bot.save();
 };
 
-exports.update = function *() {
+exports.update = function *update() {
   const data = this.request.body;
   const { bot } = this.state;
   for (const key of Object.keys(data)) {
@@ -39,12 +36,12 @@ exports.update = function *() {
   this.body = yield bot.save();
 };
 
-exports.remove = function *() {
+exports.remove = function *remove() {
   yield this.state.bot.remove();
   this.body = {};
 };
 
-exports.deploy = function *() {
+exports.deploy = function *deploy() {
   const code = JSON.stringify(this.request.body);
   // yield consul.kv.set(`nodely/flows/${this.state.bot.get('_id')}/data`, code);
 
@@ -54,13 +51,13 @@ exports.deploy = function *() {
   this.body = {};
 };
 
-exports.status = function *() {
+exports.status = function *status() {
   const { bot } = this.state;
   const jobId = `flow:${bot.get('_id')}`;
   const alloc = yield NomadClient.job.lastAllocation({ jobId });
 
   const statusTranslations = {
-    'dead': 'not running'
+    dead: 'not running'
   };
 
   this.body = {
@@ -69,12 +66,13 @@ exports.status = function *() {
   };
 };
 
-exports.start = function *() {
+exports.start = function *start() {
   const { bot } = this.state;
   this.state.bot.set('started', true);
   yield this.state.bot.save();
 
   const jobId = `flow:${bot.get('_id')}`;
+  /* eslint-disable quote-props */
   yield NomadClient.job.create({ jobId }, {
     'Job': {
       'Region': 'dev',
@@ -145,11 +143,12 @@ exports.start = function *() {
       'ModifyIndex': 0
     }
   });
+  /* eslint-enable quote-props */
 
   this.body = {};
 };
 
-exports.stop = function *() {
+exports.stop = function *stop() {
   const { bot } = this.state;
   const jobId = `flow:${bot.get('_id')}`;
   this.state.bot.set('started', false);

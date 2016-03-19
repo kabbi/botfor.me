@@ -23,7 +23,7 @@ export const constants = {
   REMOTE_UNSUBSCRIBED
 };
 
-export const connect = () => (dispatch, getState) => {
+export const connect = () => dispatch => {
   const socket = io(__API_HOST__, {
     path: '/api/socket.io'
   });
@@ -50,6 +50,11 @@ export const actions = {
   disconnect
 };
 
+const initialState = {
+  status: 'offline',
+  socket: null
+};
+
 export default handleActions({
   [REMOTE_CONNECT]: (state, { payload }) => ({
     ...state,
@@ -68,7 +73,4 @@ export default handleActions({
     ...state,
     status: 'offline'
   })
-}, {
-  status: 'offline',
-  socket: null
-});
+}, initialState);

@@ -23,9 +23,7 @@ const webpackConfig = {
   name: 'client',
   target: 'web',
   entry: {
-    app: [
-      paths.base(config.dir_client) + '/main.js'
-    ],
+    app: [`${paths.base(config.dir_client)}/main.js`],
     vendor: config.compiler_vendor
   },
   output: {

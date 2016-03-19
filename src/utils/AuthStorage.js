@@ -18,9 +18,9 @@ export const saveAuth = (auth) => {
   setItem(AUTH_STORAGE_PATH, auth);
 };
 
-export const loadAuth = () => {
-  return validateAuthObject(getItem(AUTH_STORAGE_PATH));
-};
+export const loadAuth = () => (
+  validateAuthObject(getItem(AUTH_STORAGE_PATH))
+);
 
 export const removeAuth = () => {
   removeItem(AUTH_STORAGE_PATH);

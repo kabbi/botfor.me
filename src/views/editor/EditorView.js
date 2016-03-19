@@ -87,6 +87,8 @@ export class EditorView extends AsyncComponent {
           code: JSON.stringify(this.state.data.toJS(), null, 2)
         });
         break;
+      default:
+        throw new Error('Bad mode');
     }
     this.setState({ mode });
   }
@@ -141,9 +143,11 @@ export class EditorView extends AsyncComponent {
               }}
             />}
 
-            <ButtonToolbar className={
-              classNames('bfm-right-toolbar', toolbarVisible ? 'bfm-visible' : 'bfm-invisible')
-            }>
+            <ButtonToolbar
+              className={
+                classNames('bfm-right-toolbar', toolbarVisible ? 'bfm-visible' : 'bfm-invisible')
+              }
+            >
               <ButtonGroup>
                 <Button
                   onClick={this.handleToggleMode.bind(this, 'source')}

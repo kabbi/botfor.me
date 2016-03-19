@@ -1,13 +1,10 @@
 {
-  "parser"  : "babel-eslint",
-  "extends" : [
-    "standard",
-    "standard-react"
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "plugins": [
+    "babel"
   ],
-  "env"     : {
-    "browser" : true
-  },
-  "globals" : {
+  "globals": {
     "__DEV__"      : false,
     "__PROD__"     : false,
     "__DEBUG__"    : false,
@@ -22,9 +19,21 @@
     "Col": true
   },
   "rules": {
-    "space-before-function-paren": [2, "never"],
-    "semi" : [2, "always"],
-    "react-in-jsx-scope": 0,
-    "jsx-quotes": [2, "prefer-double"]
+    // [kabbi] Looks awful!
+    "comma-dangle": 0,
+    // [kabbi] Hate those spaces
+    "react/jsx-space-before-closing": 0,
+    // [kabbi] Don't know what is it for anyway
+    "no-param-reassign": [2, {"props": false}],
+    // TODO: remove this!
+    "react/jsx-no-bind": 0,
+    // Ignores capitalized decorators (@Decorator)
+    "babel/new-cap": 2,
+    // [kabbi] I'm old enough to decide myself
+    "quote-props": 0
+    // "space-before-function-paren": [2, "never"],
+    // "semi": [2, "always"],
+    // "react-in-jsx-scope": 0,
+    // "jsx-quotes": [2, "prefer-double"]
   }
 }

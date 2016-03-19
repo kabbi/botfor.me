@@ -5,9 +5,13 @@ const config = require('../config');
 const Mongorito = require('mongorito');
 const debug = require('debug')('app:app-server');
 const paths = config.utils_paths;
+const http = require('http');
 const app = require('koa')();
 
-const server = require('http').Server(app.callback());
+// Start various daemons
+require('./tasks/store');
+
+const server = new http.Server(app.callback());
 const io = require('socket.io')(server, {
   path: '/api/socket.io'
 });
@@ -16,7 +20,7 @@ Mongorito.connect('localhost/botforme');
 
 io.on('connection', (socket) => {
   setInterval(() => {
-    socket.emit('message', 'hello, the time now: ' + new Date().toTimeString());
+    socket.emit('message', `hello, the time now: ${new Date().toTimeString()}`);
   }, 1000);
 });
 

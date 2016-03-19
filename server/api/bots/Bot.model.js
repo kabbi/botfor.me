@@ -1,3 +1,5 @@
+'use strict';
+
 const ValidatedModel = require('../utils/ValidatedModel');
 
 module.exports = class Bot extends ValidatedModel {
@@ -34,7 +36,7 @@ module.exports = class Bot extends ValidatedModel {
     this.before('create', 'addEmptyCode');
   }
 
-  * addEmptyCode(next) {
+  *addEmptyCode(next) {
     this.set('code', JSON.stringify({
       nodes: [],
       links: []

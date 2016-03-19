@@ -101,7 +101,12 @@ export default class Form extends Component {
 
   render() {
     return (
-      <form ref="form" action="#" onSubmit={::this.handleSubmit} className={this.props.className} noValidate>
+      <form noValidate
+        ref="form"
+        action="#"
+        onSubmit={::this.handleSubmit}
+        className={this.props.className}
+      >
         {this.extendAllSupportedChildren()}
       </form>
     );

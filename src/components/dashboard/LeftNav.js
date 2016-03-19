@@ -1,6 +1,7 @@
 import { NavItem, Nav, Panel } from 'react-bootstrap';
 
 const handleSelect = () => {
+  // eslint-disable-next-line
   alert('Not implemented yet');
 };
 

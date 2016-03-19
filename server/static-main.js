@@ -6,9 +6,10 @@ const config = require('../config');
 
 const debug = require('debug')('app:static-server');
 const paths = config.utils_paths;
+const http = require('http');
 const app = require('koa')();
 
-const server = require('http').Server(app.callback());
+const server = new http.Server(app.callback());
 
 // This rewrites all routes requests to the root /index.html file
 // (ignoring file requests). If you want to implement isomorphic

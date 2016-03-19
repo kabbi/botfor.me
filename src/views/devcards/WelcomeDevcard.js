@@ -1,4 +1,4 @@
-function WelcomeDevcard({ children, routes }) {
+function WelcomeDevcard() {
   return (
     <div className="jumbotron">
       <h1>Welcome</h1>
