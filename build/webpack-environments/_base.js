@@ -48,17 +48,25 @@ const webpackConfig = {
     new webpack.ProvidePlugin(config.compiler_globals)
   ],
   resolve: {
-    root: paths.base(config.dir_client),
+    root: [
+      paths.base(config.dir_client),
+      // To include common files
+      paths.base(config.dir_source)
+    ],
     extensions: ['', '.js', '.jsx']
   },
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loader: 'eslint',
-        exclude: /node_modules/
-      }
-    ],
+    // TODO: Eslint doesn't seem to handle config hierarchy correctly, when used
+    // as a lodader. Consider re-enabling, when these errors are fixed.
+    // Currently common modules are linted incorrectly.
+
+    // preLoaders: [
+    //   {
+    //     test: /\.js$/,
+    //     loader: 'eslint',
+    //     exclude: /node_modules/
+    //   }
+    // ],
     loaders: [
       {
         test: /\.(js|jsx)$/,

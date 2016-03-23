@@ -12,9 +12,11 @@ const config = {
   // Project Structure
   // ----------------------------------
   path_base  : path.resolve(__dirname, '../'),
-  dir_client : 'src',
+  dir_client : 'src/client',
+  dir_server : 'src/server',
+  dir_common : 'src/common',
+  dir_source : 'src',
   dir_dist   : 'dist',
-  dir_server : 'server',
   dir_test   : 'tests',
 
   // ----------------------------------

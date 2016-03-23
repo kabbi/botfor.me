@@ -13,7 +13,7 @@
     "lint": "eslint . ./",
     "lint:fix": "npm run lint -- --fix",
     "start": "npm run dev",
-    "server": "nodemon -i src -x 'node --harmony_destructuring --harmony_default_parameters --es_staging -r dotenv/config bin/app-server'",
+    "server": "nodemon -i src/client -x 'node --harmony_destructuring --harmony_default_parameters --es_staging -r dotenv/config bin/app-server'",
     "dev": "node -r dotenv/config --harmony_destructuring --harmony_default_parameters --es_staging bin/static-server --hot",
     "dev:nw": "npm run dev -- --nw",
     "dev:no-debug": "npm run dev -- --no_debug",
@@ -30,6 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "consul": "^0.24.0",
+    "core-decorators": "^0.11.1",
     "d3": "^3.5.14",
     "debug": "^2.2.0",
     "dotenv": "^2.0.0",
