@@ -2,7 +2,7 @@
 
 const { CANCEL } = require('redux-saga/effects');
 
-exports.listenForEvent = (socket, event) => {
+exports.waitForEvent = (socket, event) => {
   let listener = null;
   const promise = new Promise(resolve => {
     socket.once(event, resolve);

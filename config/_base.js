@@ -31,7 +31,9 @@ const config = {
     }
   },
 
-  nomad_host : 'http://192.168.140.42:4646',
+  nomad_host: 'http://192.168.140.42:4646',
+
+  mongo_url: 'localhost/botforme-dev',
 
   // ----------------------------------
   // Server Configuration
@@ -73,7 +75,7 @@ const config = {
     'react-router',
     'redux',
     'redux-actions',
-    'redux-simple-router'
+    'react-router-redux'
   ],
 
   // ----------------------------------
@@ -107,7 +109,6 @@ config.globals = {
   __DEV__      : config.env === 'development',
   __PROD__     : config.env === 'production',
   __DEBUG__    : config.env === 'development' && !argv.no_debug,
-  __DEBUG_NEW_WINDOW__ : !!argv.nw,
   __BASENAME__ : JSON.stringify(process.env.BASENAME || '/'),
   __MAINTAINING_MODE__ : process.env.MAINTAINING_MODE
 };

@@ -1,45 +1,76 @@
-import { createAction, handleActions } from 'redux-actions';
-import { call, fork, put, race } from 'redux-saga/effects';
-import { isCancelError, takeEvery } from 'redux-saga';
+import { call, fork, put, race, select, take } from 'redux-saga/effects';
+import { handleActions } from 'redux-actions';
+import { isCancelError } from 'redux-saga';
+import { fromJS } from 'immutable';
 import io from 'socket.io-client';
 
-import { listenForEvent } from 'common/utils/socket';
+import { waitForEvent } from 'common/utils/socket';
 import { createConstants } from 'common/utils/redux';
+import { actions as apiAuthActions } from 'common/modules/auth';
+import { selectors as authSelectors } from 'redux/modules/auth';
+
+export const path = 'remote';
 
 export const constants = createConstants([
-  'REMOTE_UPDATE_STATUS'
+  'REMOTE_UPDATE_STATUS',
+  'REMOTE_SEND_ACTION',
+  'REMOTE_RECEIVE_ACTION'
 ]);
 
-export const actions = {
-  updateStatus: createAction(
-    constants.REMOTE_UPDATE_STATUS,
-    (status, reason) => ({ status, reason })
-  )
+export const selectors = {
+  getStatus: state => state.getIn([path, 'status']),
+  getReason: state => state.getIn([path, 'reason']),
+  getSendBuffer: state => state.getIn([path, 'sendBuffer'])
 };
 
-export const initialState = {
+export const actions = {
+  updateStatus: (status, reason) => ({
+    type: constants.REMOTE_UPDATE_STATUS,
+    payload: { status, reason }
+  }),
+  sendRemoteAction: action => ({
+    type: constants.REMOTE_SEND_ACTION,
+    payload: { action }
+  }),
+  receiveRemoteAction: action => ({
+    type: constants.REMOTE_RECEIVE_ACTION,
+    payload: { action }
+  })
+};
+
+export const initialState = fromJS({
+  sendBuffer: [],
   status: 'offline',
   reason: null
-};
+});
 
 export const reducer = handleActions({
-  [constants.REMOTE_UPDATE_STATUS]: (state, { payload: { status, reason } }) => ({
-    ...state, status, reason
-  })
+  [constants.REMOTE_SEND_ACTION]: (state, action) => {
+    if (state.get('status') === 'offline') {
+      return state.update('sendBuffer', buffer => buffer.push(action));
+    }
+    return state;
+  },
+  [constants.REMOTE_UPDATE_STATUS]: (state, { payload: { status, reason } }) => state
+    .set('status', status).set('reason', reason)
 }, initialState);
 
-function *apiCaller(socket, action) {
-  socket.emit('action', action);
-}
+export const handleRemoteActions = (reducerMap, defaultState) => {
+  const handler = handleActions(reducerMap, defaultState);
+  return (state, intent) => handler(state, intent.payload.action);
+};
 
 function *eventSender(socket) {
-  yield* takeEvery(action => /API_.+/.test(action.type), apiCaller, socket);
+  while (true) {
+    const intent = yield take(constants.REMOTE_SEND_ACTION);
+    socket.emit('action', intent.payload.action);
+  }
 }
 
 function *eventReceiver(socket) {
   while (true) {
-    const action = yield call(listenForEvent, socket, 'action');
-    yield put(action);
+    const action = yield call(waitForEvent, socket, 'action');
+    yield put(actions.receiveRemoteAction(action));
   }
 }
 
@@ -48,12 +79,27 @@ function *statusTracker(socket) {
     // Only one field will be present in `events`,
     // and the value maybe `reason`
     const events = yield race({
-      connected: call(listenForEvent, socket, 'connect'),
-      disconnected: call(listenForEvent, socket, 'disconnect'),
-      reconnecting: call(listenForEvent, socket, 'reconnecting'),
-      reconnected: call(listenForEvent, socket, 'reconnect')
+      connected: call(waitForEvent, socket, 'connect'),
+      disconnected: call(waitForEvent, socket, 'disconnect'),
+      reconnecting: call(waitForEvent, socket, 'reconnecting'),
+      reconnected: call(waitForEvent, socket, 'reconnect')
     });
     const status = Object.keys(events)[0];
+    // Re-authenticate on each connection or reconnection
+    if (events.hasOwnProperty('connected')) {
+      const token = yield select(authSelectors.getToken);
+      if (token) {
+        // Authorize the current connection
+        yield put(actions.sendRemoteAction(
+          apiAuthActions.restore(token)
+        ));
+        // Send back all the buffered messages
+        const sendBuffer = yield select(selectors.getSendBuffer);
+        for (const intent of sendBuffer) {
+          socket.emit('action', intent.payload.action);
+        }
+      }
+    }
     yield put(actions.updateStatus(status, events[status]));
   }
 }
@@ -61,7 +107,7 @@ function *statusTracker(socket) {
 export const saga = function *remoteSaga() {
   yield put(actions.updateStatus('connecting'));
   const socket = io(__API_HOST__, {
-    path: '/api/socket.io'
+    path: '/api/socket'
   });
 
   try {

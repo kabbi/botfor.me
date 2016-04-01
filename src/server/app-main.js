@@ -13,17 +13,13 @@ const server = new http.Server(app.callback());
 // This maybe useful in our daemons
 app.context.server = server;
 
-Mongorito.connect('localhost/botforme');
-
-if (config.env === 'development') {
-  app.use(require('koa-logger')());
-}
+Mongorito.connect(config.mongo_url);
 
 // Load api routes
-require('./api/routes')(app);
+// require('./api/routes')(app);
 
-// Start various daemons and tasks
-require('./daemons')(app);
+// Start server modules
+require('./modules')(app);
 
 if (config.serve_static_files) {
   const serve = require('koa-static');

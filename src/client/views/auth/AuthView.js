@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 
 import { redirectSignIn } from 'utils/Redirects';
+import { selectors as authSelectors } from 'redux/modules/auth';
 
-const mapStateToProps = (state) => ({
-  authorized: !!state.auth.token
+const mapStateToProps = state => ({
+  authorized: authSelectors.isAuthorized(state)
 });
 
 export class AuthView extends React.Component {

@@ -1,7 +1,8 @@
 import { Button, ButtonGroup, ButtonToolbar, Glyphicon } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import classNames from 'classnames';
 import AceEditor from 'react-ace';
-import Immutable from 'immutable';
+import { fromJS } from 'immutable';
 
 import 'brace/theme/github';
 import 'brace/mode/json';
@@ -11,42 +12,66 @@ import BotStatus from 'components/editor/BotStatus';
 import Drawer from 'components/editor/Drawer';
 import BotCanvas from 'components/svg/BotCanvas';
 
+import { actions, selectors } from 'redux/modules/bots';
 import { randomNodeId } from 'utils/Random';
-import { delay } from 'utils/Promise';
-import api from 'utils/Api';
+
+const mapStateToProps = state => ({
+  loading: selectors.isLoading(state),
+  currentBot: selectors.getCurrentBot(state)
+});
+const mapActionsToProps = actions;
 
 /* eslint-disable react/jsx-no-bind */
 export class EditorView extends AsyncComponent {
   static propTypes = {
-    params: React.PropTypes.object
+    loading: React.PropTypes.bool,
+    params: React.PropTypes.shape({
+      botId: React.PropTypes.string.isRequired
+    }).isRequired,
+    currentBot: React.PropTypes.object
   };
 
   state = {
-    bot: {},
-    deploy: {},
     data: null,
     code: null,
     mode: 'visual',
     toolbarVisible: false
   };
 
+  componentDidMount() {
+    const { botId } = this.props.params;
+    this.props.openBot(botId);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const currentProps = this.props;
+    if (nextProps.params.botId !== currentProps.params.botId) {
+      nextProps.openBot(nextProps.params.botId);
+    }
+    if (nextProps.currentBot && !currentProps.currentBot) {
+      const data = fromJS(JSON.parse(nextProps.currentBot.get('code')));
+      this.setState({ data });
+    }
+  }
+
   handleDeployBot() {
     const { botId } = this.props.params;
     const data = this.state.data.toJS();
+    console.log('Deploying', botId, data);
 
-    this.handlePromise('deploy', api.bot.deploy(data, { botId })).then(() => (
-      delay(1000)
-    )).then(() => {
-      if (this.unmounted) {
-        return;
-      }
-      this.resetStatus('deploy');
-    });
+    // this.handlePromise('deploy', api.bot.deploy(data, { botId })).then(() => (
+    //   delay(1000)
+    // )).then(() => {
+    //   if (this.unmounted) {
+    //     return;
+    //   }
+    //   this.resetStatus('deploy');
+    // });
   }
 
   handleNewNode(type) {
     this.handleDataUpdate(this.state.data.update('nodes', nodes => (
-      nodes.push(Immutable.fromJS({
+      nodes.push(fromJS({
         type,
         id: randomNodeId(),
         props: {},
@@ -80,7 +105,7 @@ export class EditorView extends AsyncComponent {
     switch (mode) {
       case 'visual':
         this.setState({
-          data: Immutable.fromJS(JSON.parse(this.state.code))
+          data: fromJS(JSON.parse(this.state.code))
         });
         break;
       case 'source':
@@ -98,29 +123,19 @@ export class EditorView extends AsyncComponent {
     this.setState({ toolbarVisible });
   }
 
-  componentWillMount() {
-    const { botId } = this.props.params;
-    this.handlePromise('bot', api.bot.fetch({ botId })).then(result => {
-      const data = Immutable.fromJS(JSON.parse(result.data.code));
-      this.setState({ data });
-    });
-  }
-
   render() {
-    const botStatus = this.getStatus('bot');
     const { mode, data, toolbarVisible } = this.state;
+    const { currentBot, loading } = this.props;
 
-    if (!data || !botStatus.result) {
+    if (loading || !currentBot) {
       return <div className="text-center">Loading...</div>;
     }
-
-    const bot = botStatus.result.data;
 
     return (
       <Grid fluid>
         <Row>
           <Col xs={3}>
-            <BotStatus botId={bot._id}/>
+            <BotStatus botId={currentBot.get('_id')}/>
             <Drawer onAddNode={::this.handleNewNode}/>
           </Col>
           <Col xs={9}
@@ -177,4 +192,4 @@ export class EditorView extends AsyncComponent {
   }
 }
 
-export default EditorView;
+export default connect(mapStateToProps, mapActionsToProps)(EditorView);

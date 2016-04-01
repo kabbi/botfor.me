@@ -1,6 +1,6 @@
 import { Alert, Button, Modal } from 'react-bootstrap';
-import { pushPath } from 'redux-simple-router';
 import { autobind } from 'core-decorators';
+import { push } from 'react-router-redux';
 import { connect } from 'react-redux';
 
 import Form from 'components/form/Form';
@@ -24,7 +24,7 @@ export class NewBotModal extends AsyncComponent {
       if (result.error) {
         return;
       }
-      this.props.dispatch(pushPath(`/editor/${result.data._id}`));
+      this.props.dispatch(push(`/editor/${result.data._id}`));
     });
   }
 

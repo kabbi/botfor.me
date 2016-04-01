@@ -1,45 +1,87 @@
-import { createAction, handleActions } from 'redux-actions';
-import { fork, put } from 'redux-saga/effects';
-import { pushPath } from 'redux-simple-router';
-import { takeEvery } from 'redux-saga';
+import { fork, put, select, take } from 'redux-saga/effects';
+import { handleActions } from 'redux-actions';
+import { push } from 'react-router-redux';
+import { fromJS } from 'immutable';
 
-import { apiAuthActions } from 'common/constants/actions';
-import { loadAuth } from 'utils/AuthStorage';
+import { loadAuth, saveAuth, removeAuth } from 'utils/AuthStorage';
+import { constants as apiConstants, actions as apiActions } from 'common/modules/auth';
+import {
+  actions as remoteActions,
+  constants as remoteConstants,
+  handleRemoteActions
+} from 'redux/modules/remote';
+
+export const path = 'auth';
+
+export const selectors = {
+  isAuthorized: state => !!state.getIn([path, 'token']),
+  getState: state => state.get(path),
+  getToken: state => state.getIn([path, 'token']),
+  getUser: state => state.getIn([path, 'user'])
+};
 
 export const actions = {
-  signIn: createAction(apiAuthActions.API_AUTH_SIGNIN),
-  signUp: createAction(apiAuthActions.API_AUTH_SIGNUP),
-  signOut: createAction(apiAuthActions.API_AUTH_SIGNOUT)
+  signIn: formData => remoteActions.sendRemoteAction(
+    apiActions.signIn(formData)
+  ),
+  signUp: formData => remoteActions.sendRemoteAction(
+    apiActions.signUp(formData)
+  ),
+  signOut: () => remoteActions.sendRemoteAction(
+    apiActions.signOut()
+  ),
 };
 
-export const initialState = {
+export const initialState = fromJS({
   token: null,
   user: null,
+  // TODO: Possibly move initial auth loading somewhere else
   ...loadAuth()
-};
+});
 
 export const reducer = handleActions({
-  [apiAuthActions.API_AUTH_AUTHORIZE]: (state, { payload }) => payload,
-  [apiAuthActions.API_AUTH_DEAUTHORIZE]: () => ({
-    token: null,
-    user: null
+  [remoteConstants.REMOTE_RECEIVE_ACTION]: handleRemoteActions({
+    [apiConstants.API_AUTH_AUTHORIZE]: (state, { payload }) => state
+      .set('token', payload.token).set('user', fromJS(payload.user)),
+    [apiConstants.API_AUTH_DEAUTHORIZE]: state => state
+      .set('token', null).set('user', null)
   })
 }, initialState);
 
-function *redirect(redirectMap, action) {
-  yield put(pushPath(redirectMap[action.type] || '/status/404'));
+function *persister() {
+  while (true) {
+    const action = yield take([
+      apiConstants.API_AUTH_AUTHORIZE,
+      apiConstants.API_AUTH_DEAUTHORIZE
+    ]);
+    if (action.type === apiConstants.API_AUTH_AUTHORIZE) {
+      const auth = yield select(selectors.getState);
+      saveAuth(auth.toJS());
+    }
+    if (action.type === apiConstants.API_AUTH_DEAUTHORIZE) {
+      removeAuth();
+    }
+  }
 }
 
 function *redirecter() {
   const redirectMap = {
-    [apiAuthActions.API_AUTH_AUTHORIZE]: '/dashboard',
-    [apiAuthActions.API_AUTH_DEAUTHORIZE]: '/signin'
+    [apiConstants.API_AUTH_AUTHORIZE]: '/dashboard',
+    [apiConstants.API_AUTH_DEAUTHORIZE]: '/signin'
   };
-  yield* takeEvery(Object.keys(redirectMap), redirect, redirectMap);
+  while (true) {
+    const intent = yield take(remoteConstants.REMOTE_RECEIVE_ACTION);
+    const { type } = intent.payload.action;
+    if (!redirectMap[type]) {
+      continue;
+    }
+    yield put(push(redirectMap[type]));
+  }
 }
 
 export const saga = function *authSaga() {
   yield fork(redirecter);
+  yield fork(persister);
 };
 
 export default {

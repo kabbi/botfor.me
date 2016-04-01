@@ -7,11 +7,15 @@ const { fork } = require('redux-saga/effects');
 const daemons = [
   require('./cluster'),
   require('./remote'),
-  require('./auth')
+  require('./auth'),
+  require('./bots')
 ];
 
 function *startupSaga(deprecatedGetState, app) {
   for (const daemon of daemons) {
+    if (!daemon.saga) {
+      continue;
+    }
     yield fork(daemon.saga, app);
   }
 }
@@ -25,6 +29,9 @@ module.exports = app => {
   );
   const rootReducer = combineReducers(
     daemons.reduce((obj, daemon) => {
+      if (!daemon.reducer) {
+        return obj;
+      }
       obj[daemon.path] = daemon.reducer;
       return obj;
     }, {})

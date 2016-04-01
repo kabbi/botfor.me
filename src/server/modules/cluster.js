@@ -3,7 +3,7 @@
 const Immutable = require('immutable');
 const { select, fork, put, take } = require('redux-saga/effects');
 
-const debug = require('debug')('app:app-server:tasks:cluster');
+const debug = require('debug')('app:app-server:modules:cluster');
 
 const ConsulClient = require('../clients/ConsulClient');
 const NomadClient = require('../clients/NomadClient');
