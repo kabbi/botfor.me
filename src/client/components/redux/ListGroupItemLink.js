@@ -8,7 +8,7 @@ export default class ListGroupItemLink extends React.Component {
 
   static propTypes = {
     to: React.PropTypes.string.isRequired,
-    children: React.PropTypes.node.isRequired
+    children: React.PropTypes.node
   };
 
   @autobind

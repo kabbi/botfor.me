@@ -1,0 +1,34 @@
+Storage:
+- users
+  - credentials
+  - simple metadata
+- nodes
+  - type
+  - props
+- connections
+  - from -> to
+  - type
+    - detected automatically
+    - in-process / local pipe / websocket / anything elese
+- flows
+  - graph of nodes
+- apps
+  - collection of flows under specific user
+- supernodes
+  - collection of flows with static inputs / outputs
+- realtime  things
+  - app alive status, node alive status, connection alive status
+
+Operations:
+- users
+  - create (signup)
+  - fetch one (authorized user)
+  - remove one (remove my account)
+  - authorize
+- nodes
+- connections
+- flows
+- apps
+- supernodes
+- realtime things
+- node blueprints

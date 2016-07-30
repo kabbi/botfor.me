@@ -57,7 +57,7 @@ const webpackConfig = {
   },
   module: {
     // TODO: Eslint doesn't seem to handle config hierarchy correctly, when used
-    // as a lodader. Consider re-enabling, when these errors are fixed.
+    // as a loader. Consider re-enabling, when these errors are fixed.
     // Currently common modules are linted incorrectly.
 
     // preLoaders: [
@@ -67,41 +67,40 @@ const webpackConfig = {
     //     exclude: /node_modules/
     //   }
     // ],
-    loaders: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: 'babel',
+    loaders: [{
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      loader: 'babel',
 
-        // NOTE: live development transforms (HMR, redbox-react) are
-        // configured in ~/build/webpack-environments/development.js
-        query: {
-          cacheDirectory: true,
-          plugins: ['transform-runtime', 'transform-decorators-legacy'],
-          presets: ['es2015', 'react', 'stage-0']
-        }
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /\.scss$/,
-        loaders: [
-          'style',
-          CSS_LOADER,
-          'postcss',
-          'sass'
-        ]
-      },
-      {
-        test: /\.css$/,
-        loaders: [
-          'style',
-          CSS_LOADER,
-          'postcss'
-        ]
-      },
+      // NOTE: live development transforms (HMR, redbox-react) are
+      // configured in ~/build/webpack-environments/development.js
+      query: {
+        cacheDirectory: true,
+        plugins: ['transform-runtime', 'transform-decorators-legacy'],
+        presets: ['es2015', 'react', 'stage-0']
+      }
+    }, {
+      test: /\.json$/,
+      loader: 'json'
+    }, {
+      test: /\.scss$/,
+      include: paths.client('styles'),
+      loaders: [
+        'style',
+        'css?sourceMap',
+        'postcss',
+        'sass'
+      ]
+    }, {
+      test: /\.scss$/,
+      exclude: paths.client('styles'),
+      loaders: [
+        'style',
+        CSS_LOADER,
+        'postcss',
+        'sass'
+      ]
+    },
       /* eslint-disable */
       { test: /\.woff(\?.*)?$/,  loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff' },
       { test: /\.woff2(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2' },

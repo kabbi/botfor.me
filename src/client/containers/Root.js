@@ -1,14 +1,15 @@
+import React, { Component, PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 
-export default class Root extends React.Component {
+export default class Root extends Component {
   static propTypes = {
-    history: React.PropTypes.object.isRequired,
-    routes: React.PropTypes.element.isRequired,
-    store: React.PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
+    routes: PropTypes.element.isRequired,
+    store: PropTypes.object.isRequired,
   };
 
-  get content() {
+  renderContent() {
     return (
       <Router history={this.props.history}>
         {this.props.routes}
@@ -16,7 +17,7 @@ export default class Root extends React.Component {
     );
   }
 
-  get devTools() {
+  renderDevTools() {
     if (__DEBUG__) {
       const DevTools = require('containers/DevTools').default;
       return <DevTools/>;
@@ -25,11 +26,12 @@ export default class Root extends React.Component {
   }
 
   render() {
+    const { store } = this.props;
     return (
-      <Provider store={this.props.store}>
+      <Provider store={store}>
         <div style={{ height: '100%' }}>
-          {this.content}
-          {this.devTools}
+          {this.renderContent()}
+          {this.renderDevTools()}
         </div>
       </Provider>
     );

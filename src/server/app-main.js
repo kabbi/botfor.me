@@ -1,19 +1,39 @@
 'use strict';
 
-const config = require('../../config');
-
 const Mongorito = require('mongorito');
 const debug = require('debug')('app:app-server');
-const paths = config.utils_paths;
+const horizon = require('@horizon/server');
 const http = require('http');
+const jwt = require('jsonwebtoken');
 const app = require('koa')();
 
+const config = require('../../config');
+const paths = config.utils_paths;
 
 const server = new http.Server(app.callback());
 // This maybe useful in our daemons
 app.context.server = server;
 
 Mongorito.connect(config.mongo_url);
+
+const horizonServer = horizon(server, {
+  project_name: 'bfmTest',
+  auto_create_collection: true,
+  auto_create_index: true,
+  auth: {
+    token_secret: 'asd_fffUuu1@W',
+  }
+});
+
+// Just get us some admin token to test this shit
+console.log('token', jwt.sign({
+  id: 'admin',
+  provider: 'local',
+  iat: 1469820081,
+  exp: 1469906481
+}, 'asd_fffUuu1@W', {
+  algorithm: 'HS512'
+}));
 
 // Load api routes
 // require('./api/routes')(app);

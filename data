@@ -1,0 +1,233 @@
+USER              PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND
+kabbi            5728   4.1  1.1  5181680  91848   ??  S    27Mar16 409:50.18 /Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container /Library/Internet Plug-Ins/Flash Player.plugin -greomni /Applications/Firefox.app/Contents/Resources/omni.ja -appomni /Applications/Firefox.app/Contents/Resources/browser/omni.ja -appdir /Applications/Firefox.app/Contents/Resources/browser 4501 gecko-crash-server-pipe.4501 org.mozilla.machname.1188982715 plugin
+_windowserver     204   1.5  0.5  3843332  37936   ??  Ss   27Mar16  69:06.25 /System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreGraphics.framework/Resources/WindowServer -daemon
+kabbi             315   0.8  0.5  2618616  43748   ??  S    27Mar16   3:31.00 /Applications/Utilities/Terminal.app/Contents/MacOS/Terminal -psn_0_24582
+kabbi             324   0.7  0.6  3166996  48216   ??  S    27Mar16  18:05.46 /System/Library/CoreServices/SystemUIServer.app/Contents/MacOS/SystemUIServer
+root            42384   0.3  0.5   771220  38960   ??  U     5:54PM   0:25.61 /Volumes/Creative Cloud Installer/Creative Cloud Installer.app/Contents/MacOS/Install --shouldLaunchACC=false --aamHelperPipeName=ABFC36B1-0CA7-4020-AFA8-E51F6475331B --workflowId={57CB2AE0-E0AD-4A57-AD34-07F1DB53ABE8} --lbsInstallerWorkflowID={EA200BC2-9DA7-423D-930D-1AB4DCA7077C} --ccmInputXmlPath=/tmp/AEFA699B-5AF5-4783-8CB7-C439754E4001 @yuy^TM^DM^^yLM^EM^^yDM^DM^^y
+kabbi             463   0.2  0.3  2594764  25392   ??  S    27Mar16   0:12.60 /System/Library/CoreServices/NotificationCenter.app/Contents/MacOS/NotificationCenter
+root            42670   0.2  0.0   623556   1312   ??  Ss    5:57PM   0:01.19 /Library/Application Support/Adobe/Adobe Desktop Common/ElevationManager/AdobeUpdateDaemon
+kabbi             485   0.1  0.2  3624320  13460   ??  U    27Mar16   4:48.08 /Applications/Flux.app/Contents/MacOS/Flux
+kabbi             459   0.1  1.2  3536768 101520   ??  S    27Mar16   9:29.65 /usr/local/opt/mongodb/bin/mongod --config /usr/local/etc/mongod.conf
+_spotlight      42695   0.0  0.1  2497988   6436   ??  S     5:59PM   0:01.02 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker -s mdworker -c MDSImporterWorker -m com.apple.mdworker.single
+kabbi           42685   0.0  0.1  2475168   7232   ??  S     5:58PM   0:00.04 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker -s mdworker -c MDSImporterWorker -m com.apple.mdworker.shared
+kabbi           42661   0.0  0.1  2481024   9540   ??  S     5:57PM   0:00.11 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker -s mdworker -c MDSImporterWorker -m com.apple.mdworker.shared
+_spotlight      42621   0.0  0.2  2516088  15264   ??  S     5:57PM   0:01.41 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker -s mdworker -c MDSImporterWorker -m com.apple.mdworker.shared
+_spotlight      42620   0.0  0.2  2517128  13040   ??  S     5:57PM   0:01.19 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker -s mdworker -c MDSImporterWorker -m com.apple.mdworker.shared
+_spotlight      42603   0.0  0.2  2517704  12760   ??  S     5:57PM   0:01.45 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker -s mdworker -c MDSImporterWorker -m com.apple.mdworker.shared
+_spotlight      42568   0.0  0.2  2515548  15308   ??  S     5:56PM   0:01.23 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker -s mdworker -c MDSImporterWorker -m com.apple.mdworker.shared
+kabbi           42567   0.0  0.1  2492840   4788   ??  S     5:56PM   0:00.02 /System/Library/PrivateFrameworks/HelpData.framework/Versions/A/Resources/helpd
+kabbi           42370   0.0  0.1   690356   8512   ??  S     5:54PM   0:00.45 /Volumes/Creative Cloud Installer/Creative Cloud Installer.app/Contents/MacOS/Install -psn_0_1896911
+root            42357   0.0  0.0  2469216   2372   ??  Ss    5:54PM   0:00.05 /System/Library/PrivateFrameworks/DiskImages.framework/Resources/hdiejectd
+kabbi           42352   0.0  0.1  2515080  10208   ??  Ss    5:54PM   0:00.23 /System/Library/PrivateFrameworks/DiskImages.framework/Resources/diskimages-helper -uuid 64C89F11-A3E2-48A8-AA72-DACB29FD6E82 -post-exec 4
+kabbi           42350   0.0  0.2  2567764  15916   ??  S     5:54PM   0:00.40 /System/Library/CoreServices/CoreServicesUIAgent.app/Contents/MacOS/CoreServicesUIAgent
+kabbi           41516   0.0  2.4  4243808 201396   ??  S     4:01PM   0:28.52 /opt/homebrew-cask/Caskroom/chromium/latest/chrome-mac/Chromium.app/Contents/Versions/51.0.2683.0/Chromium Helper.app/Contents/MacOS/Chromium Helper --type=renderer --enable-features=AutomaticTabDiscarding<AutomaticTabDiscarding,ViewsSimplifiedFullscreenUI<ViewsSimplifiedFullscreenUI,WebRTC-H264WithOpenH264FFmpeg<WebRTC-H264WithOpenH264FFmpeg,use-new-media-cache<use-new-media-cache --primordial-pipe-token=BAB0621CF059BC71AFBBE1B70F226368 --lang=en-US --force-fieldtrials=AutofillClassifier/Enabled/AutofillFieldMetadata/Enabled/AutofillProfileOrderByFrecency/EnabledLimitTo3/*AutomaticTabDiscarding/Enabled_Once_5/CaptivePortalInterstitial/Enabled/ChromeDashboard/Enabled/ChromotingQUIC/Enabled/*DataReductionProxyConfigService/Enabled/EnableGoogleCachedCopyTextExperiment/Button/*ExtensionActionRedesign/Enabled/*ExtensionDeveloperModeWarning/Enabled/ExtensionInstallVerification/Enforce/InstanceID/Enabled/IntelligentSessionRestore/Enabled/*LocalNTPSuggestionsService/Enabled/*MacMemoryMechanism/Mach/MaterialDesignDownloads/Enabled/*PageRevisitInstrumentation/Enabled/PasswordBranding/SmartLockBrandingSavePromptOnly/*QUIC/Enabled/RefreshTokenDeviceId/Enabled/RenderingPipelineThrottling/Enabled/ReportCertificateErrors/ShowAndPossiblySend/*ResourcePriorities/AllExceptAsyncScripts_11011_1_1_10/SafeBrowsingReportPhishingErrorLink/Enabled/SafeBrowsingUnverifiedDownloads/DisableByParameterMostSbTypes2/*SafeBrowsingUpdateFrequency/UpdateTime15m/*SchedulerExpensiveTaskBlocking/Enabled/SdchPersistence/Enabled/*SimpleCacheTrial/ExperimentYes/*SpdyEnableDependencies/Enable/*StrictSecureCookies/Enabled/SyncHttpContentCompression/Enabled/TabSyncByRecency/Enabled/VarationsServiceControl/Interval_30min/ViewsSimplifiedFullscreenUI/Enabled/WebFontsIntervention/Enabled/WebRTC-H264WithOpenH264FFmpeg/Enabled/WebRTC-LocalIPPermissionCheck/Enabled/WebRTC-PeerConnectionDTLS1.2/Enabled/use-new-media-cache/Enabled/ --enable-offline-auto-reload --enable-offline-auto-reload-visible-only --blink-settings=fetchDeferLateScripts=true,fetchIncreaseFontPriority=true,fetchIncreasePriorities=true --enable-experimental-extension-apis --enable-pinch --num-raster-threads=2 --enable-zero-copy --disable-partial-raster --enable-gpu-memory-buffer-compositor-resources --content-image-texture-target=3553,3553,3553,3553,3553,34037,3553,3553,3553,3553,34037,3553,34037,34037 --video-image-texture-target=3553,3553,3553,3553,3553,34037,3553,3553,3553,3553,34037,3553,34037,34037 --channel=37912.13.532197957
+_netbios        38870   0.0  0.1  2470004   4944   ??  SNs  11:10AM   0:00.06 /usr/sbin/netbiosd
+kabbi           38035   0.0  0.1  2495124   7704   ??  S    Sun05PM   0:00.03 /System/Library/PrivateFrameworks/DataDetectorsCore.framework/Versions/A/XPCServices/DataDetectorsDynamicData.xpc/Contents/MacOS/DataDetectorsDynamicData
+kabbi           37943   0.0  2.6  3701100 218320   ??  S    Sun05PM  93:59.27 /opt/homebrew-cask/Caskroom/chromium/latest/chrome-mac/Chromium.app/Contents/Versions/51.0.2683.0/Chromium Helper.app/Contents/MacOS/Chromium Helper --type=renderer --enable-features=AutomaticTabDiscarding<AutomaticTabDiscarding,ViewsSimplifiedFullscreenUI<ViewsSimplifiedFullscreenUI,WebRTC-H264WithOpenH264FFmpeg<WebRTC-H264WithOpenH264FFmpeg,use-new-media-cache<use-new-media-cache --primordial-pipe-token=A6B34E391627D9EA395AE441A0F52344 --lang=en-US --force-fieldtrials=AutofillClassifier/Enabled/AutofillFieldMetadata/Enabled/AutofillProfileOrderByFrecency/EnabledLimitTo3/*AutomaticTabDiscarding/Enabled_Once_5/CaptivePortalInterstitial/Enabled/ChromeDashboard/Enabled/ChromotingQUIC/Enabled/*DataReductionProxyConfigService/Enabled/EnableGoogleCachedCopyTextExperiment/Button/*ExtensionActionRedesign/Enabled/*ExtensionDeveloperModeWarning/Enabled/ExtensionInstallVerification/Enforce/InstanceID/Enabled/IntelligentSessionRestore/Enabled/*LocalNTPSuggestionsService/Enabled/*MacMemoryMechanism/Mach/MaterialDesignDownloads/Enabled/*PageRevisitInstrumentation/Enabled/PasswordBranding/SmartLockBrandingSavePromptOnly/*QUIC/Enabled/RefreshTokenDeviceId/Enabled/RenderingPipelineThrottling/Enabled/ReportCertificateErrors/ShowAndPossiblySend/*ResourcePriorities/AllExceptAsyncScripts_11011_1_1_10/SafeBrowsingReportPhishingErrorLink/Enabled/SafeBrowsingUnverifiedDownloads/DisableByParameterMostSbTypes2/SafeBrowsingUpdateFrequency/UpdateTime15m/*SchedulerExpensiveTaskBlocking/Enabled/SdchPersistence/Enabled/*SimpleCacheTrial/ExperimentYes/*SpdyEnableDependencies/Enable/*StrictSecureCookies/Enabled/SyncHttpContentCompression/Enabled/TabSyncByRecency/Enabled/VarationsServiceControl/Interval_30min/ViewsSimplifiedFullscreenUI/Enabled/WebFontsIntervention/Enabled/WebRTC-H264WithOpenH264FFmpeg/Enabled/WebRTC-LocalIPPermissionCheck/Enabled/WebRTC-PeerConnectionDTLS1.2/Enabled/use-new-media-cache/Enabled/ --enable-offline-auto-reload --enable-offline-auto-reload-visible-only --blink-settings=fetchDeferLateScripts=true,fetchIncreaseFontPriority=true,fetchIncreasePriorities=true --enable-experimental-extension-apis --enable-pinch --num-raster-threads=2 --enable-zero-copy --disable-partial-raster --enable-gpu-memory-buffer-compositor-resources --content-image-texture-target=3553,3553,3553,3553,3553,34037,3553,3553,3553,3553,34037,3553,34037,34037 --video-image-texture-target=3553,3553,3553,3553,3553,34037,3553,3553,3553,3553,34037,3553,34037,34037 --channel=37912.2.157000098
+kabbi           37942   0.0  0.8  3392000  63808   ??  S    Sun05PM   0:00.99 /opt/homebrew-cask/Caskroom/chromium/latest/chrome-mac/Chromium.app/Contents/Versions/51.0.2683.0/Chromium Helper.app/Contents/MacOS/Chromium Helper --type=renderer --enable-features=AutomaticTabDiscarding<AutomaticTabDiscarding,ViewsSimplifiedFullscreenUI<ViewsSimplifiedFullscreenUI,WebRTC-H264WithOpenH264FFmpeg<WebRTC-H264WithOpenH264FFmpeg,use-new-media-cache<use-new-media-cache --primordial-pipe-token=BB83F28C244BD8CDC92C6F175A8AEFAD --lang=en-US --force-fieldtrials=AutofillClassifier/Enabled/AutofillFieldMetadata/Enabled/AutofillProfileOrderByFrecency/EnabledLimitTo3/*AutomaticTabDiscarding/Enabled_Once_5/CaptivePortalInterstitial/Enabled/ChromeDashboard/Enabled/ChromotingQUIC/Enabled/*DataReductionProxyConfigService/Enabled/EnableGoogleCachedCopyTextExperiment/Button/*ExtensionActionRedesign/Enabled/ExtensionDeveloperModeWarning/Enabled/ExtensionInstallVerification/Enforce/InstanceID/Enabled/IntelligentSessionRestore/Enabled/*LocalNTPSuggestionsService/Enabled/*MacMemoryMechanism/Mach/MaterialDesignDownloads/Enabled/*PageRevisitInstrumentation/Enabled/PasswordBranding/SmartLockBrandingSavePromptOnly/*QUIC/Enabled/RefreshTokenDeviceId/Enabled/RenderingPipelineThrottling/Enabled/ReportCertificateErrors/ShowAndPossiblySend/*ResourcePriorities/AllExceptAsyncScripts_11011_1_1_10/SafeBrowsingReportPhishingErrorLink/Enabled/SafeBrowsingUnverifiedDownloads/DisableByParameterMostSbTypes2/SafeBrowsingUpdateFrequency/UpdateTime15m/SchedulerExpensiveTaskBlocking/Enabled/SdchPersistence/Enabled/*SimpleCacheTrial/ExperimentYes/SpdyEnableDependencies/Enable/StrictSecureCookies/Enabled/SyncHttpContentCompression/Enabled/TabSyncByRecency/Enabled/VarationsServiceControl/Interval_30min/ViewsSimplifiedFullscreenUI/Enabled/WebFontsIntervention/Enabled/WebRTC-H264WithOpenH264FFmpeg/Enabled/WebRTC-LocalIPPermissionCheck/Enabled/WebRTC-PeerConnectionDTLS1.2/Enabled/use-new-media-cache/Enabled/ --extension-process --enable-webrtc-hw-h264-encoding --enable-offline-auto-reload --enable-offline-auto-reload-visible-only --blink-settings=fetchDeferLateScripts=true,fetchIncreaseFontPriority=true,fetchIncreasePriorities=true --enable-experimental-extension-apis --enable-pinch --num-raster-threads=2 --enable-zero-copy --disable-partial-raster --enable-gpu-memory-buffer-compositor-resources --content-image-texture-target=3553,3553,3553,3553,3553,34037,3553,3553,3553,3553,34037,3553,34037,34037 --video-image-texture-target=3553,3553,3553,3553,3553,34037,3553,3553,3553,3553,34037,3553,34037,34037 --channel=37912.1.1883740042
+kabbi           37925   0.0  0.1  2492764   4612   ??  Ss   Sun05PM   0:00.03 /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPCServices/VTDecoderXPCService.xpc/Contents/MacOS/VTDecoderXPCService
+kabbi           37918   0.0  0.4  2859780  30212   ??  S    Sun05PM   0:14.74 /opt/homebrew-cask/Caskroom/chromium/latest/chrome-mac/Chromium.app/Contents/Versions/51.0.2683.0/Chromium Helper.app/Contents/MacOS/Chromium Helper --type=gpu-process --channel=37912.0.1852450312 --supports-dual-gpus=false --gpu-driver-bug-workarounds=15,16,30,35,48,49,53,55,63,64,71 --gpu-vendor-id=0x8086 --gpu-device-id=0x0166 --gpu-driver-vendor --gpu-driver-version
+kabbi           37915   0.0  0.1  2495532   5516   ??  U    Sun05PM   0:00.14 /opt/homebrew-cask/Caskroom/chromium/latest/chrome-mac/Chromium.app/Contents/Versions/51.0.2683.0/Chromium Framework.framework/Helpers/crashpad_handler --database=/Users/kabbi/Library/Application Support/Chromium/Crashpad --url=none --annotation=plat=OS X --annotation=prod=Chromium_Mac --annotation=ver=51.0.2683.0 --handshake-fd=8
+kabbi           37912   0.0  1.7  3244044 142388   ??  S    Sun05PM   1:28.41 /opt/homebrew-cask/Caskroom/chromium/latest/chrome-mac/Chromium.app/Contents/MacOS/Chromium
+kabbi           36934   0.0  0.1  2507100   5044   ??  Ss   Sun03PM   0:00.24 /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPCServices/VTDecoderXPCService.xpc/Contents/MacOS/VTDecoderXPCService
+kabbi           36653   0.0  0.1  2469224   4488   ??  S    Sun02PM   0:00.03 /System/Library/CoreServices/rcd.app/Contents/MacOS/rcd
+kabbi           36389   0.0  0.0  2464028   3068   ??  S    Sun01PM   1:50.52 adb -P 5037 fork-server server --reply-fd 4
+kabbi           35994   0.0  0.0  2494836   2732   ??  S    Sun01PM   0:00.04 /System/Library/Services/AppleSpell.service/Contents/MacOS/AppleSpell -psn_0_1606024
+root            34112   0.0  0.1  2493484   6048   ??  Ss   Sun09AM   0:00.56 /usr/libexec/findmydeviced
+root            30704   0.0  0.0  2468228    260   ??  Ss   Sat11AM   0:00.00 /usr/sbin/aslmanager -s /var/log/eventmonitor
+kabbi           30688   0.0  0.1  2469424   4300   ??  S    Fri09PM   0:00.03 /usr/libexec/USBAgent
+root            30659   0.0  0.0  2460880   1680   ??  Ss   Fri09PM   0:00.02 /System/Library/CryptoTokenKit/com.apple.ifdreader.slotd/Contents/MacOS/com.apple.ifdreader
+kabbi           30642   0.0  0.1  2553228   9628   ??  S    Fri09PM   0:00.55 /System/Library/Image Capture/Support/Image Capture Extension.app/Contents/MacOS/Image Capture Extension
+kabbi           30639   0.0  0.0  2495404   1832   ??  S    Fri09PM   0:00.06 /System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Versions/A/printtool agent
+kabbi           29903   0.0  0.0  2469876   2468   ??  S    Fri08PM   0:00.23 /usr/bin/ssh-agent -l
+kabbi           26294   0.0  0.1  2470816   4996   ??  Us   Thu12PM   0:00.07 /System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/XPCServices/com.apple.CommerceKit.TransactionService.xpc/Contents/MacOS/com.apple.CommerceKit.TransactionService
+root            26209   0.0  0.0  2493476   1948   ??  Ss   Thu12PM   0:00.06 /System/Library/PrivateFrameworks/TCC.framework/Resources/tccd system
+kabbi           24686   0.0  0.0  2469404   2080   ??  S    Thu09AM   0:00.03 /System/Library/PrivateFrameworks/KerberosHelper/Helpers/DiskUnmountWatcher
+kabbi           24224   0.0  0.0  2469052   2236   ??  S    Thu09AM   0:00.07 /System/Library/Frameworks/Security.framework/Versions/A/Resources/CloudKeychainProxy.bundle/Contents/MacOS/CloudKeychainProxy
+_nsurlsessiond  24217   0.0  0.1  2469304   4452   ??  Ss   Thu09AM   0:00.07 /usr/libexec/nsurlsessiond --privileged
+kabbi           24215   0.0  0.1  2469332   4568   ??  S    Thu09AM   0:00.08 /usr/libexec/nsurlsessiond
+kabbi           24212   0.0  0.1  2503608  10052   ??  S    Thu09AM   0:00.18 /System/Library/PrivateFrameworks/CloudKitDaemon.framework/Support/cloudd
+kabbi           24211   0.0  0.1  2539384   8468   ??  S    Thu09AM   0:00.79 /System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/AirPlayUIAgent --launchd
+kabbi           24209   0.0  0.2  2548348  13308   ??  S    Thu09AM   0:00.64 /System/Library/PrivateFrameworks/CloudServices.framework/Resources/EscrowSecurityAlert.app/Contents/MacOS/EscrowSecurityAlert
+root            24197   0.0  0.0  2469560   2384   ??  Ss   Thu09AM   0:00.05 /System/Library/PrivateFrameworks/AccountPolicy.framework/XPCServices/com.apple.AccountPolicyHelper.xpc/Contents/MacOS/com.apple.AccountPolicyHelper
+kabbi           23916   0.0  0.1  2493088   6436   ??  S    Thu01AM   0:00.11 /System/Library/Frameworks/InputMethodKit.framework/Versions/A/XPCServices/com.apple.InputMethodKit.UserDictionary.xpc/Contents/MacOS/com.apple.InputMethodKit.UserDictionary
+root            23462   0.0  0.0  2484668   2052   ??  Ss   Thu12AM   0:01.93 /usr/sbin/systemstats --xpc
+root            23457   0.0  0.1  2472224   4668   ??  Ss   Thu12AM   0:00.22 /System/Library/PrivateFrameworks/SoftwareUpdate.framework/Resources/suhelperd
+_softwareupdate 23454   0.0  0.1  3997108   9108   ??  Ss   Thu12AM   1:54.12 /System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated
+kabbi           23453   0.0  0.1  2496236   7268   ??  S    Thu12AM   0:02.38 /System/Library/CoreServices/mapspushd
+root            23452   0.0  0.0  2469216    268   ??  SNs  Thu12AM   0:00.03 /usr/libexec/periodic-wrapper daily
+kabbi           23441   0.0  0.1  2500456  12192   ??  S    Thu12AM   0:00.52 /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/Versions/A/Support/bird
+kabbi           23440   0.0  0.1  2506032   8912   ??  S    Thu12AM   0:00.86 /usr/libexec/pkd
+_iconservices   23437   0.0  0.1  2504204   7100   ??  Ss   Thu12AM   0:00.13 /System/Library/CoreServices/iconservicesd
+kabbi           23436   0.0  0.1  2515940   8824   ??  S    Thu12AM   0:00.80 /System/Library/CoreServices/iconservicesagent
+kabbi           23121   0.0  0.1  2494528   5472   ??  S    Wed11PM   0:00.10 /usr/libexec/secd
+kabbi           23118   0.0  0.1  2493380  10336   ??  S    Wed11PM   0:03.99 /usr/libexec/secinitd
+kabbi           23117   0.0  0.2  2559352  16560   ??  S    Wed11PM   0:01.22 /System/Library/PrivateFrameworks/InternetAccounts.framework/Versions/A/XPCServices/com.apple.internetaccounts.xpc/Contents/MacOS/com.apple.internetaccounts
+kabbi           22611   0.0  0.1  2503292   7640   ??  S    Wed10PM   0:00.47 /System/Library/CoreServices/pbs
+root            22398   0.0  0.1  2504400   5492   ??  Ss   Wed10PM   0:00.62 /usr/libexec/sandboxd -n PluginProcess -n 
+root            22397   0.0  0.0  2469252    900   ??  Ss   Wed10PM   0:00.04 /usr/libexec/diagnosticd
+root            22385   0.0  0.1  2470480   5656   ??  Ss   Wed10PM   0:00.72 /System/Library/PrivateFrameworks/CoreSymbolication.framework/coresymbolicationd
+kabbi           22384   0.0  0.1  2477444   5744   ??  S    Wed10PM   0:00.08 /usr/libexec/spindump_agent
+root            22383   0.0  0.2  2617064  19896   ??  Ss   Wed10PM   0:21.32 /usr/sbin/spindump
+root            22356   0.0  0.1  2494080   7480   ??  Ss   Wed10PM   0:01.45 /usr/libexec/amfid
+root            22323   0.0  0.0  2469860   1988   ??  Us   Wed10PM   0:10.47 sysmond
+root            22294   0.0  0.0  2469224    764   ??  Ss   Wed10PM   0:00.05 /usr/libexec/networkd_privileged
+kabbi           22293   0.0  0.2  2496744  12728   ??  S    Wed10PM   0:03.91 /System/Library/CoreServices/AppleIDAuthAgent
+root            22291   0.0  0.1  2471524   5620   ??  Ss   Wed10PM   0:00.40 /System/Library/PrivateFrameworks/PerformanceAnalysis.framework/XPCServices/com.apple.PerformanceAnalysis.animationperfd.xpc/Contents/MacOS/com.apple.PerformanceAnalysis.animationperfd
+kabbi           22290   0.0  0.1  2499088   6868   ??  S    Wed10PM   0:01.45 /System/Library/Frameworks/Accounts.framework/Versions/A/Support/accountsd
+root            22267   0.0  0.0  2518088   1344   ??  Ss   Wed10PM   0:29.93 /usr/libexec/systemstatsd
+root            22266   0.0  0.0  2469216   1044   ??  Ss   Wed10PM   0:00.27 /System/Library/Frameworks/Security.framework/Versions/A/XPCServices/com.apple.CodeSigningHelper.xpc/Contents/MacOS/com.apple.CodeSigningHelper
+kabbi           22258   0.0  0.0  2477932   2516   ??  S    Wed10PM   0:23.38 /usr/sbin/cfprefsd agent
+root            22249   0.0  0.0  2472440   2316   ??  Ss   Wed10PM   0:32.96 /usr/sbin/cfprefsd daemon
+root            22247   0.0  0.1  2469776  10440   ??  Ss   Wed10PM   0:00.82 /System/Library/CoreServices/backupd.bundle/Contents/Resources/backupd-helper -launchd
+root            22242   0.0  0.1  2504520   9952   ??  Ss   Wed10PM   0:25.38 /usr/libexec/coreduetd
+kabbi           22241   0.0  0.2  2499008  12836   ??  Ss   Wed10PM   0:00.40 /System/Library/PrivateFrameworks/CalendarAgent.framework/Versions/A/XPCServices/CalNCService.xpc/Contents/MacOS/CalNCService
+_nsurlstoraged  22240   0.0  0.1  2469324   6212   ??  Ss   Wed10PM   0:00.16 /usr/libexec/nsurlstoraged
+kabbi           22233   0.0  0.2  2511784  16132   ??  S    Wed10PM   0:02.48 /System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent
+kabbi           22232   0.0  0.1  2495224   6844   ??  S    Wed10PM   0:01.25 /System/Library/CoreServices/lsuseractivityd
+kabbi           22231   0.0  0.2  2535644  14200   ??  S    Wed10PM   0:00.42 /System/Library/PrivateFrameworks/MessagesKit.framework/Resources/soagent.app/Contents/MacOS/soagent
+root            22230   0.0  0.1  2473456   6400   ??  Us   Wed10PM   0:23.50 /System/Library/PrivateFrameworks/CacheDelete.framework/deleted
+kabbi           22225   0.0  0.1  2504184   7388   ??  S    Wed10PM   0:21.92 /System/Library/PrivateFrameworks/TCC.framework/Resources/tccd
+kabbi           22220   0.0  0.1  2472992   7956   ??  S    Wed10PM   0:01.90 /usr/libexec/nsurlstoraged
+kabbi           17392   0.0  0.1  2494800   5320   ??  U<   Wed12PM   0:00.06 /opt/homebrew-cask/Caskroom/atom/1.2.3/Atom.app/Contents/Frameworks/Squirrel.framework/Resources/ShipIt com.github.atom.ShipIt
+kabbi           16075   0.0  0.1  3620884  11744   ??  S    Wed10AM   0:02.05 /System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Resources/storeuid.app/Contents/MacOS/storeuid
+root             5039   0.0  0.0  2469216    272   ??  S    27Mar16   0:00.02 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdflagwriter
+root             4975   0.0  0.0  2493000   2216   ??  Ss   27Mar16   0:00.07 /System/Library/PrivateFrameworks/Noticeboard.framework/Versions/A/Resources/nbstated
+kabbi            4965   0.0  0.1  2477336   5148   ??  S    27Mar16   0:00.16 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker -s mdworker-sizing -c MDSSizingWorker -m com.apple.mdworker.sizing
+_spotlight       4964   0.0  0.1  2477832   5216   ??  S    27Mar16   0:00.22 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker -s mdworker-sizing -c MDSSizingWorker -m com.apple.mdworker.sizing
+root             4950   0.0  0.0  2494596   3652   ??  Ss   27Mar16   0:00.19 /usr/libexec/syspolicyd
+kabbi            4946   0.0  0.1  2550624  11224   ??  S    27Mar16   0:01.96 /System/Library/PrivateFrameworks/Noticeboard.framework/Versions/A/Resources/nbagent.app/Contents/MacOS/nbagent
+kabbi            4501   0.0 12.6  4654044 1056148   ??  U    27Mar16 506:31.65 /Applications/Firefox.app/Contents/MacOS/firefox
+kabbi            4215   0.0  0.1  2501420  12044   ??  S    27Mar16   0:03.01 /System/Library/PrivateFrameworks/ParsecUI.framework/Versions/A/Support/SpotlightNetHelper.app/Contents/MacOS/SpotlightNetHelper
+kabbi            4044   0.0  0.1  2494836   6020   ??  S    27Mar16   0:00.08 /System/Library/Services/AppleSpell.service/Contents/MacOS/AppleSpell -psn_0_278596
+kabbi            4037   0.0  0.2  3203620  17076   ??  S    27Mar16   0:09.39 /opt/homebrew-cask/Caskroom/atom/1.2.3/Atom.app/Contents/Frameworks/Atom Helper.app/Contents/MacOS/Atom Helper --eval require('/opt/homebrew-cask/Caskroom/atom/1.2.3/Atom.app/Contents/Resources/app.asar/src/compile-cache.js').setCacheDirectory('/Users/kabbi/.atom/compile-cache');^Jrequire('/opt/homebrew-cask/Caskroom/atom/1.2.3/Atom.app/Contents/Resources/app.asar/src/task-bootstrap.js');
+kabbi            3873   0.0  0.2  4041256  13324   ??  S    27Mar16   7:57.31 linter-eslint helper 
+kabbi            3861   0.0  0.2  3180208  13024   ??  S    27Mar16   0:00.83 linter-eslint helper 
+kabbi            3860   0.0  0.2  3196952  13440   ??  S    27Mar16   0:02.30 linter-eslint helper 
+kabbi            3373   0.0  0.1   806188   9340   ??  S    27Mar16   0:07.34 /Applications/Tunnelblick.app/Contents/MacOS/Tunnelblick
+kabbi             763   0.0  0.0  2436440    704   ??  Ss   27Mar16   0:03.26 sh -s disksup
+kabbi             733   0.0  0.1  2548388   8672   ??  S    27Mar16   0:01.01 /System/Library/PrivateFrameworks/UniversalAccess.framework/Versions/A/Resources/universalAccessAuthWarn.app/Contents/MacOS/universalAccessAuthWarn launchd -s
+kabbi             701   0.0  0.1  2497456   6388   ??  S    27Mar16   0:00.20 /System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Resources/storedownloadd
+kabbi             700   0.0  0.1  2497300   8200   ??  S    27Mar16   0:01.47 /System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Resources/storeinappd
+kabbi             695   0.0  0.1  2548360   9164   ??  S    27Mar16   0:01.05 /System/Library/PrivateFrameworks/CommerceKit.framework/Resources/LaterAgent.app/Contents/MacOS/LaterAgent
+kabbi             679   0.0  0.2  2513184  13240   ??  S    27Mar16   0:02.35 /System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Resources/storeaccountd
+kabbi             642   0.0  0.1  2506260  11020   ??  S    27Mar16   0:05.80 /System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Resources/storeassetd
+kabbi             613   0.0  0.1  2468920   4956   ??  S    27Mar16   0:00.14 /System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Resources/storelegacy
+kabbi             590   0.0  0.0  2461020    728 s002  S+   27Mar16   0:00.77 -bash
+kabbi             578   0.0  0.0  2461020    676 s001  S+   27Mar16   0:00.45 -bash
+kabbi             577   0.0  0.0  2461020   1480 s004  S+   27Mar16   0:00.48 -bash
+kabbi             576   0.0  0.0  2461020    724 s000  S+   27Mar16   0:00.61 -bash
+kabbi             575   0.0  0.0  2461020   1732 s003  S    27Mar16   0:00.53 -bash
+kabbi             574   0.0  0.0  2461020    680 s005  S+   27Mar16   0:00.45 -bash
+root              544   0.0  0.1  2469360   4536   ??  Ss   27Mar16   0:00.54 /System/Library/CoreServices/SubmitDiagInfo server-init
+root              537   0.0  0.0  2492768   1940   ??  Ss   27Mar16   0:00.95 /System/Library/CoreServices/CrashReporterSupportHelper server-init
+kabbi             534   0.0  0.3  3789876  26200   ??  S    27Mar16   2:02.69 /Applications/Dash.localized/Dash.app/Contents/MacOS/Dash
+kabbi             533   0.0  0.2  3639976  16804   ??  S    27Mar16   1:47.67 /Applications/ControlPlane.app/Contents/MacOS/ControlPlane
+kabbi             532   0.0  0.0  2503748   3824   ??  S    27Mar16   0:00.19 /Applications/iTunes.app/Contents/MacOS/iTunesHelper.app/Contents/MacOS/iTunesHelper
+kabbi             487   0.0  0.1  2550576   9124   ??  S    27Mar16   0:01.55 /System/Library/CoreServices/Menu Extras/TextInput.menu/Contents/SharedSupport/TISwitcher.app/Contents/MacOS/TISwitcher
+kabbi             479   0.0  0.1  2502284   7568   ??  S    27Mar16   0:02.25 /System/Library/CoreServices/diagnostics_agent
+kabbi             478   0.0  0.1  2539908   8700   ??  S    27Mar16   0:01.70 /System/Library/CoreServices/WiFiAgent.app/Contents/MacOS/WiFiAgent
+kabbi             475   0.0  0.1 573385720   9004   ??  S    27Mar16   5:28.82 /usr/local/bin/serf agent -config-dir=/Users/kabbi/dev/distributed/presence-cluster/serf/conf.d/
+kabbi             474   0.0  0.1  2494984   6556   ??  S    27Mar16   0:09.24 /System/Library/CoreServices/cloudpaird
+kabbi             473   0.0  0.1  2537448   8948   ??  S    27Mar16   3:36.91 /usr/local/Cellar/erlang/18.1/lib/erlang/erts-7.1/bin/beam.smp -Bd -K true -A 4 -- -root /usr/local/Cellar/erlang/18.1/lib/erlang -progname erl -- -home /Users/kabbi -- -noshell -noinput -os_mon start_memsup false start_cpu_sup false disk_space_check_interval 1 disk_almost_full_threshold 1 -sasl errlog_type error -couch_ini /usr/local/etc/couchdb/default.ini /usr/local/etc/couchdb/local.ini -s couch
+kabbi             472   0.0  0.1  2524048   8312   ??  S    27Mar16   0:55.19 /Users/kabbi/Library/Application Support/OculusVR/OVRServer
+kabbi             470   0.0  0.1  2492964   9956   ??  S    27Mar16   0:00.11 /System/Library/PrivateFrameworks/AskPermission.framework/Versions/A/Resources/askpermissiond
+kabbi             466   0.0  0.1  2495192   6500   ??  S    27Mar16   0:00.41 /Library/Application Support/iStat Menus 4/iStatMenusAgent
+kabbi             465   0.0  0.1 573390212   9624   ??  S    27Mar16   9:17.47 /usr/local/bin/consul agent -config-dir=/Users/kabbi/dev/distributed/consul-cluster/config.d/
+kabbi             460   0.0  0.2  2548348  13612   ??  S    27Mar16   0:00.95 /System/Library/CoreServices/Keychain Circle Notification.app/Contents/MacOS/Keychain Circle Notification
+kabbi             457   0.0  0.1  2492908   6316   ??  S    27Mar16   0:00.85 /System/Library/CoreServices/SocialPushAgent.app/Contents/MacOS/SocialPushAgent
+kabbi             454   0.0  0.2 573501840  18384   ??  S    27Mar16   8:52.80 /usr/local/opt/influxdb/bin/influxd -config /usr/local/etc/influxdb.conf
+kabbi             453   0.0  0.0  2462952    680   ??  S    27Mar16   1:43.01 /usr/local/opt/mosquitto/sbin/mosquitto -c /usr/local/etc/mosquitto/mosquitto.conf
+kabbi             436   0.0  7.6  4666640 634320   ??  S    27Mar16  57:06.59 /opt/homebrew-cask/Caskroom/atom/1.2.3/Atom.app/Contents/Frameworks/Atom Helper.app/Contents/MacOS/Atom Helper --type=renderer --js-flags=--harmony --no-sandbox --lang=English --node-integration=true --enable-delegated-renderer --num-raster-threads=2 --gpu-rasterization-msaa-sample-count=8 --content-image-texture-target=3553 --video-image-texture-target=3553 --channel=316.4.933692475
+kabbi             434   0.0  4.0  4426876 338472   ??  S    27Mar16   5:13.32 /opt/homebrew-cask/Caskroom/atom/1.2.3/Atom.app/Contents/Frameworks/Atom Helper.app/Contents/MacOS/Atom Helper --type=renderer --js-flags=--harmony --no-sandbox --lang=English --node-integration=true --enable-delegated-renderer --num-raster-threads=2 --gpu-rasterization-msaa-sample-count=8 --content-image-texture-target=3553 --video-image-texture-target=3553 --channel=316.2.1698891397
+kabbi             430   0.0  0.9  4424032  73512   ??  S    27Mar16   1:43.49 /opt/homebrew-cask/Caskroom/atom/1.2.3/Atom.app/Contents/Frameworks/Atom Helper.app/Contents/MacOS/Atom Helper --type=renderer --js-flags=--harmony --no-sandbox --lang=English --node-integration=true --enable-delegated-renderer --num-raster-threads=2 --gpu-rasterization-msaa-sample-count=8 --content-image-texture-target=3553 --video-image-texture-target=3553 --channel=316.1.404954125
+root              416   0.0  0.0  2468972   1688 s005  Ss   27Mar16   0:00.06 login -pfl kabbi /bin/bash -c exec -la bash /bin/bash
+root              415   0.0  0.0  2468972   1688 s004  Ss   27Mar16   0:00.06 login -pfl kabbi /bin/bash -c exec -la bash /bin/bash
+root              414   0.0  0.0  2468972   1688 s003  Ss   27Mar16   0:00.06 login -pfl kabbi /bin/bash -c exec -la bash /bin/bash
+root              413   0.0  0.0  2468972   1688 s002  Ss   27Mar16   0:00.06 login -pfl kabbi /bin/bash -c exec -la bash /bin/bash
+root              412   0.0  0.0  2468972   1688 s001  Ss   27Mar16   0:00.06 login -pfl kabbi /bin/bash -c exec -la bash /bin/bash
+kabbi             408   0.0  0.0  2494448   3656   ??  S    27Mar16   0:00.70 /opt/homebrew-cask/Caskroom/atom/1.2.3/Atom.app/Contents/Frameworks/Electron Framework.framework/Resources/crashpad_handler --database=/tmp/Atom Crashes --url=http://54.249.141.255:1127/post --handshake-fd=51
+kabbi             406   0.0  0.8  2811904  69392   ??  S    27Mar16   9:41.64 /opt/homebrew-cask/Caskroom/atom/1.2.3/Atom.app/Contents/Frameworks/Atom Helper.app/Contents/MacOS/Atom Helper --type=gpu-process --channel=316.0.723083992 --no-sandbox --supports-dual-gpus=false --gpu-driver-bug-workarounds=13,24,29,32,41,45,52,58 --gpu-vendor-id=0x8086 --gpu-device-id=0x0166 --gpu-driver-vendor --gpu-driver-version
+root              405   0.0  0.0  2469496   1688 s000  Us   27Mar16   0:00.07 login -pfl kabbi /bin/bash -c exec -la bash /bin/bash
+kabbi             393   0.0  0.2  2498396  12628   ??  S    27Mar16   0:01.45 /System/Library/PrivateFrameworks/IMCore.framework/imagent.app/Contents/MacOS/imagent
+kabbi             386   0.0  0.1  2528512   7904   ??  S    27Mar16   0:07.82 /System/Library/Services/AppleSpell.service/Contents/MacOS/AppleSpell -psn_0_90134
+kabbi             374   0.0  0.0  2470588   2076   ??  S    27Mar16   0:00.18 /Applications/Telegram.app/Contents/Helpers/crashpad_handler --database=/Users/kabbi/Library/Application Support/Telegram Desktop/tdata/dumps --annotation=ApiId=2040 --annotation=Binary=Telegram.app --annotation=Launched=27.03.2016 10:00:18 --annotation=Platform=MacOS --annotation=UserTag=d0ee8b60386a9a55 --annotation=Version=9032 --handshake-fd=5
+kabbi             369   0.0  0.2  2550292  14184   ??  Ss   27Mar16   0:01.29 /System/Library/CoreServices/Dock.app/Contents/XPCServices/com.apple.dock.extra.xpc/Contents/MacOS/com.apple.dock.extra
+root              355   0.0  0.1  2480344   6168   ??  Us   27Mar16   0:00.15 /usr/sbin/filecoordinationd
+kabbi             353   0.0  0.0  2494900   3204   ??  Ss   27Mar16   0:02.64 /System/Library/CoreServices/Menu Extras/AirPort.menu/Contents/XPCServices/com.apple.wifi.proxy.xpc/Contents/MacOS/com.apple.wifi.proxy
+kabbi             351   0.0  0.2  2508228  13888   ??  S    27Mar16   0:05.81 /System/Library/PrivateFrameworks/IDS.framework/identityservicesd.app/Contents/MacOS/identityservicesd
+kabbi             348   0.0  0.2  2513380  14752   ??  S    27Mar16   0:10.09 /usr/libexec/sharingd
+root              342   0.0  0.1  2473360  10472   ??  Ss   27Mar16   0:22.46 /System/Library/CoreServices/backupd.bundle/Contents/Resources/TMCacheDelete
+kabbi             334   0.0  0.4  2625224  30224   ??  S    27Mar16   0:08.30 /System/Library/CoreServices/Spotlight.app/Contents/MacOS/Spotlight
+kabbi             332   0.0  0.0  2528216   4064   ??  S    27Mar16   0:09.75 /System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Support/fontd
+_coreaudiod       330   0.0  0.1  2501768   8356   ??  Ss   27Mar16  29:16.09 /usr/sbin/coreaudiod
+kabbi             325   0.0  0.9  2753576  75804   ??  S    27Mar16   2:28.75 /System/Library/CoreServices/Finder.app/Contents/MacOS/Finder
+kabbi             323   0.0  0.0  2460412    476   ??  S    27Mar16   0:00.01 /usr/sbin/pboard
+kabbi             321   0.0  0.3  2638328  23456   ??  S    27Mar16   0:56.68 /System/Library/CoreServices/Dock.app/Contents/MacOS/Dock
+kabbi             320   0.0  0.4  2716588  30940   ??  S    27Mar16   1:14.84 /Applications/Telegram.app/Contents/MacOS/Telegram -psn_0_40970
+kabbi             316   0.0  1.0  3580192  80444   ??  S    27Mar16  17:58.21 /opt/homebrew-cask/Caskroom/atom/1.2.3/Atom.app/Contents/MacOS/Atom -psn_0_28679
+kabbi             306   0.0  0.1  2496392   9316   ??  S    27Mar16   0:09.46 /usr/sbin/usernoted
+kabbi             303   0.0  0.1  2503068   6128   ??  S    27Mar16   0:06.63 /usr/sbin/universalaccessd launchd -s
+kabbi             302   0.0  0.1  2472836   5980   ??  S    27Mar16   0:45.17 /usr/sbin/distnoted agent
+kabbi             300   0.0  0.1  2506732  11832   ??  S    27Mar16   0:15.82 /usr/libexec/UserEventAgent (Aqua)
+root              299   0.0  0.0  2493372   1440   ??  Ss   27Mar16   0:00.23 /usr/libexec/securityd_service
+root              261   0.0  0.1  2469660   4776   ??  Ss   27Mar16   0:00.20 /System/Library/PrivateFrameworks/AmbientDisplay.framework/Versions/A/XPCServices/com.apple.AmbientDisplayAgent.xpc/Contents/MacOS/com.apple.AmbientDisplayAgent
+root              252   0.0  0.0  2528844   1116   ??  Ss   27Mar16   0:00.78 /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/CVMServer
+_locationd        249   0.0  0.1  2510900  12304   ??  Ss   27Mar16   0:15.85 /usr/libexec/locationd
+root              242   0.0  1.2  3188208  98616   ??  Us   27Mar16   5:08.80 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+root              237   0.0  0.0  2463184    928   ??  Ss   27Mar16   0:42.36 /usr/local/sbin/tincd -n mesh0 -DR
+root              233   0.0  0.1  2502340   5068   ??  Ss   27Mar16   1:47.01 /usr/libexec/ApplicationFirewall/socketfilterfw
+root              231   0.0  0.0  2471156    940   ??  Ss   27Mar16   0:14.57 /usr/sbin/ntpd -c /private/etc/ntp-restrict.conf -n -g -p /var/run/ntpd.pid -f /var/db/ntp.drift
+root              230   0.0  0.1  2506140   6284   ??  Ss   27Mar16   0:00.24 /System/Library/Frameworks/CoreMediaIO.framework/Resources/VDC.plugin/Contents/Resources/VDCAssistant
+root              229   0.0  0.0  2469716   2156   ??  Ss   27Mar16   0:00.92 /usr/libexec/corestoraged
+root              227   0.0  0.1  2492900   4820   ??  Ss   27Mar16   1:26.18 /usr/libexec/usbd
+_networkd         212   0.0  0.1  2474484   6900   ??  Ss   27Mar16   0:02.89 /usr/libexec/networkd
+root              203   0.0  0.1  2471660   5100   ??  Ss   27Mar16   0:00.04 /System/Library/Frameworks/PCSC.framework/Versions/A/XPCServices/com.apple.ctkpcscd.xpc/Contents/MacOS/com.apple.ctkpcscd
+root              188   0.0  0.1  2469416   4256   ??  Ss   27Mar16   0:04.89 /usr/libexec/watchdogd
+root              136   0.0  0.1  2498936   8688   ??  Ss   27Mar16   0:08.00 /System/Library/Frameworks/Security.framework/Versions/A/XPCServices/authd.xpc/Contents/MacOS/authd
+_distnote         113   0.0  0.0  2471312   2668   ??  Us   27Mar16   0:08.09 /usr/sbin/distnoted daemon
+root              110   0.0  0.2  2539176  18392   ??  Ss   27Mar16   0:13.23 /System/Library/CoreServices/coreservicesd
+root              109   0.0  0.1  2495576   4600   ??  Ss   27Mar16   1:26.49 /usr/libexec/taskgated -s
+root              107   0.0  0.0  2471868   1684   ??  Ss   27Mar16   1:40.28 /usr/sbin/notifyd
+root              106   0.0  0.0  2471084   3580   ??  Ss   27Mar16  14:41.44 /usr/libexec/hidd
+root              103   0.0  0.0  2469240    692   ??  Ss   27Mar16   0:00.02 /usr/sbin/KernelEventAgent
+root              102   0.0  0.0  2496276   3028   ??  Ss   27Mar16   0:00.32 /System/Library/PrivateFrameworks/GenerationalStorage.framework/Versions/A/Support/revisiond
+root              101   0.0  0.0  2470972   2128   ??  Ss   27Mar16   0:00.11 /System/Library/CoreServices/logind
+kabbi             100   0.0  0.2  2576172  18044   ??  Ss   27Mar16   0:23.40 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow console
+root               99   0.0  0.0  2469260    512   ??  Ss   27Mar16   0:00.03 /usr/libexec/stackshot -t -O
+_mdnsresponder     97   0.0  0.1  2496096   7924   ??  Ss   27Mar16   0:34.12 /usr/sbin/mDNSResponder
+root               93   0.0  0.1  2469524   5336   ??  Ss   27Mar16   0:00.05 autofsd
+root               92   0.0  0.1  2494028   6852   ??  Ss   27Mar16   0:25.18 /usr/sbin/blued
+_usbmuxd           86   0.0  0.0  2471772   2040   ??  Ss   27Mar16   0:00.11 /System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/Resources/usbmuxd -launchd
+root               85   0.0  0.0  2496564   3784   ??  Ss   27Mar16   0:05.22 /usr/sbin/securityd -i
+root               84   0.0  0.1  2498324  10040   ??  Ss   27Mar16   1:11.52 /System/Library/CoreServices/launchservicesd
+root               83   0.0  0.0   627716    824   ??  Ss   27Mar16   9:09.09 /Library/StartupItems/MobileBrServ/mbbservice
+root               82   0.0  0.1  2496592   9960   ??  Ss   27Mar16   0:07.73 /System/Library/PrivateFrameworks/ApplePushService.framework/apsd
+root               80   0.0  0.1  2473064   6172   ??  Ss   27Mar16   0:00.51 /usr/sbin/wirelessproxd
+root               79   0.0  0.2  2517824  16604   ??  Ss   27Mar16   1:47.60 /usr/libexec/opendirectoryd
+root               78   0.0  0.3  2526144  26192   ??  Ss   27Mar16   1:48.09 /System/Library/CoreServices/backupd.bundle/Contents/Resources/mtmfs --tcp --resvport --listen localhost --oneshot --noportmap --nobrowse
+root               69   0.0  0.0  2495260   1968   ??  Ss   27Mar16   0:35.00 /usr/libexec/diskarbitrationd
+root               63   0.0  0.5  2627684  40792   ??  Ss   27Mar16   7:47.16 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Support/mds
+root               62   0.0  0.1  2472080   6160   ??  SNs  27Mar16   0:00.52 /usr/libexec/warmd
+root               59   0.0  0.1  2503656  10268   ??  Ss   27Mar16   0:20.67 /usr/libexec/airportd
+root               55   0.0  0.0  2494844   1736   ??  Ss   27Mar16   0:29.88 /System/Library/CoreServices/powerd.bundle/powerd
+root               54   0.0  0.4  2626032  32884   ??  Ss   27Mar16   7:37.09 /Library/Application Support/iStat Menus 4/iStatMenusDaemon
+root               53   0.0  0.1  2499032   8188   ??  Ss   27Mar16   0:19.78 /usr/libexec/configd
+_appleevents       52   0.0  0.1  2495396   6820   ??  Ss   27Mar16   0:00.48 /System/Library/CoreServices/appleeventsd --server
+root               49   0.0  0.5  2543196  45180   ??  Ss   27Mar16   6:20.29 /System/Library/CoreServices/backupd.bundle/Contents/Resources/mtmd
+root               48   0.0  0.1  2469012   4796   ??  Ss   27Mar16   0:03.99 /usr/libexec/thermald
+root               46   0.0  0.1  2499224   4868   ??  Ss   27Mar16   0:04.87 /usr/libexec/kextd
+root               45   0.0  0.1  3530152   7436   ??  Ss   27Mar16   2:11.49 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/Support/fseventsd
+root               42   0.0  0.0  2473480   1340   ??  Ss   27Mar16   0:53.33 /usr/sbin/syslogd
+root               41   0.0  0.2  2507272  15896   ??  Ss   27Mar16   2:17.36 /usr/libexec/UserEventAgent (System)
+root                1   0.0  0.1  2480844  10628   ??  Ss   27Mar16   8:33.13 /sbin/launchd
+root            42884   0.0  0.0  2432944    804 s003  R+    6:08PM   0:00.00 ps aux
+root            42672   0.0  0.0        0      0   ??  Z     5:57PM   0:00.00 (Adobe Installer)
+root            42845   0.0  0.0  2468744   1792   ??  Ss    6:07PM   0:00.10 auditd -l
+kabbi           42829   0.0  0.2  2493752  12600   ??  S     6:07PM   0:00.05 /System/Library/Frameworks/AddressBook.framework/Versions/A/Helpers/AddressBookSourceSync.app/Contents/MacOS/AddressBookSourceSync
+kabbi           42781   0.0  0.1  2493316   7520   ??  S     6:07PM   0:00.09 /System/Library/PrivateFrameworks/AOSKit.framework/Versions/A/XPCServices/com.apple.iCloudHelper.xpc/Contents/MacOS/com.apple.iCloudHelper
+root            42780   0.0  0.1  2495144   4328   ??  Ss    6:07PM   0:00.05 /usr/sbin/ocspd
+kabbi           42767   0.0  0.2  2493432  14296   ??  S     6:06PM   0:00.29 /System/Library/PrivateFrameworks/SyncedDefaults.framework/Support/syncdefaultsd
+kabbi           42764   0.0  0.2  2497048  13396   ??  Ss    6:06PM   0:00.26 /System/Library/PrivateFrameworks/WeatherKit.framework/Versions/A/XPCServices/com.apple.WeatherKitService.xpc/Contents/MacOS/com.apple.WeatherKitService
+kabbi           42754   0.0  0.1  2468916   9496   ??  Ss    6:06PM   0:00.04 /System/Library/CoreServices/NotificationCenter.app/Contents/XPCServices/com.apple.notificationcenterui.WeatherSummary.xpc/Contents/MacOS/com.apple.notificationcenterui.WeatherSummary
+kabbi           42729   0.0  0.3  2500412  26688   ??  S     6:02PM   0:00.56 /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/CVMCompiler 2

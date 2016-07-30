@@ -1,5 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 
+import React, { Children, Component, PropTypes } from 'react';
 import { Well } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import d3 from 'd3';
@@ -9,7 +10,7 @@ const DraggableRect = (props) => {
   return <rect {...rest}>{children}</rect>;
 };
 DraggableRect.propTypes = {
-  children: React.PropTypes.node
+  children: PropTypes.node
 };
 DraggableRect.draggable = true;
 
@@ -17,13 +18,13 @@ const Connection = ({ data }) => (
   <path d={data} stroke="black" fill="none"/>
 );
 Connection.propTypes = {
-  data: React.PropTypes.string
+  data: PropTypes.string
 };
 Connection.connection = true;
 
-class SvgCanvas extends React.Component {
+class SvgCanvas extends Component {
   static propTypes = {
-    children: React.PropTypes.node
+    children: PropTypes.node
   };
 
   state = {
@@ -37,7 +38,7 @@ class SvgCanvas extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const { children } = this.state;
-    React.Children.forEach(nextProps.children, ({ props: { id, x, y } }) => {
+    Children.forEach(nextProps.children, ({ props: { id, x, y } }) => {
       children[id] = children[id] || {
         x: x || 0,
         y: y || 0
@@ -50,7 +51,7 @@ class SvgCanvas extends React.Component {
 
   getInitialChildrenState() {
     const state = {};
-    React.Children.forEach(this.props.children, child => {
+    Children.forEach(this.props.children, child => {
       state[child.props.id] = {
         x: child.props.x || 0,
         y: child.props.y || 0
@@ -120,7 +121,7 @@ class SvgCanvas extends React.Component {
         onMouseMove={::this.handleDragMove}
         onMouseUp={::this.handleDragFinish}
       >
-        {React.Children.map(children, child => {
+        {Children.map(children, child => {
           if (child.type.connection) {
             const { from, to } = child.props;
             const fromChild = this.state.children[from];
@@ -157,10 +158,12 @@ class SvgCanvas extends React.Component {
 
 const mapStateToProps = () => ({});
 /* eslint-disable react/jsx-no-bind */
-export default class SvgDevcard extends React.Component {
-  static dcHeader = 'Svg Experiments';
-
-  static dcDescription = 'Collective demo of svg drawing';
+export default class SvgDevcard extends Component {
+  static dcGroup = {
+    title: 'Svg Experiments',
+    description: 'A large demo of svg drawables and draggables',
+    category: 'demos'
+  };
 
   state = {
     nodes: [{

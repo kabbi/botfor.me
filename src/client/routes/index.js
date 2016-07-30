@@ -13,9 +13,12 @@ import EditorView from 'views/editor/EditorView';
 
 import AuthView from 'views/auth/AuthView';
 
-import WelcomeDevcard from 'views/devcards/WelcomeDevcard';
-import OnlineStatusDevcard from 'views/devcards/OnlineStatusDevcard';
+import WelcomeDevcards from 'views/devcards/WelcomeDevcards';
+import AuthFormsDevcards from 'views/devcards/AuthFormsDevcards';
+import FormsDevcards from 'views/devcards/FormsDevcards';
+import PanZoomDevcards from 'views/devcards/PanZoomDevcards';
 import SvgDevcard from 'views/devcards/SvgDevcard';
+import RacerPlaygroundDevcards from 'views/devcards/RacerPlaygroundDevcards';
 
 export default (
   <Route path="/" component={CoreLayout}>
@@ -29,11 +32,18 @@ export default (
       <Route path="editor/:botId" component={EditorView}/>
 
       <Route path="devcards" component={DevcardsLayout}>
-        <IndexRoute component={WelcomeDevcard}/>
-        <Route path="welcome" component={WelcomeDevcard}/>
-        <Route path="status" component={OnlineStatusDevcard}/>
+        <IndexRoute component={WelcomeDevcards}/>
+        <Route path="welcome" component={WelcomeDevcards}/>
+        <Route path="pan-zoom" component={PanZoomDevcards}/>
+        <Route path="auth-forms" component={AuthFormsDevcards}/>
+        <Route path="form" component={FormsDevcards}/>
         <Route path="svg" component={SvgDevcard}/>
+        <Route path="racer" component={RacerPlaygroundDevcards}/>
       </Route>
+    </Route>
+    <Route path="no-auth/devcards" component={DevcardsLayout}>
+      <Route path="welcome" component={WelcomeDevcards}/>
+      <Route path="racer" component={RacerPlaygroundDevcards}/>
     </Route>
   </Route>
 );

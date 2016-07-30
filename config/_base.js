@@ -35,6 +35,9 @@ const config = {
 
   mongo_url: 'localhost/botforme-dev',
 
+  // TODO: also implement jwt token expiration
+  jwt_shared_secret: 'botforsecret-23442-asEsswP',
+
   // ----------------------------------
   // Server Configuration
   // ----------------------------------
@@ -42,13 +45,11 @@ const config = {
   app_server_port : process.env.PORT || 3042,
   static_server_port : process.env.PORT || 3000,
   serve_static_files : true,
-  // TODO: also implement jwt token expiration
-  jwt_shared_secret: 'botforsecret-23442-asEsswP',
 
   // ----------------------------------
   // Compiler Configuration
   // ----------------------------------
-  compiler_css_modules     : false,
+  compiler_css_modules     : true,
   compiler_enable_hmr      : false,
   compiler_globals         : {
     React : 'react',
